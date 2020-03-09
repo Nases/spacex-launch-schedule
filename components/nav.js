@@ -15,13 +15,9 @@ export default function Nav() {
           </Link>
         </li>
         <ul className="flex justify-between items-center">
-          {links.map(({ href, label }) => (
-            <li key={`${href}${label}`} className="ml-4">
-              <a href={href} className="btn-blue no-underline">
-                {label}
-              </a>
-            </li>
-          ))}
+          <a href="https://github.com/Nases/spacex-launches" target="_blank">
+            <i className="fab fa-github fa-2x text-gray-500 hover:text-gray-700"></i>
+          </a>
         </ul>
       </ul>
     </nav>

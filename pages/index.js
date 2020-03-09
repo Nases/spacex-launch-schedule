@@ -1,10 +1,13 @@
 import Nav from '../components/nav'
+import Layout from '../components/Layout'
+import Launches from '../components/Launches'
 
 export default () => (
-  <div className='bg-gray-800'>
-    <Nav />
-    <div className="hero">
+  <Layout>
+    <div className='bg-gray-100'>
+      <Nav />
       <h1 className="primary-text">SpaceX Flights</h1>
+      <Launches />
     </div>
-  </div>
+  </Layout>
 )

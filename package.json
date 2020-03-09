@@ -8,6 +8,8 @@
     "save": "git add . && git commit -m '🚀' && git push -u origin master"
   },
   "dependencies": {
+    "axios": "^0.19.2",
+    "moment": "^2.24.0",
     "next": "^9.2.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
