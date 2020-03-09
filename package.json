@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "save": "git add . && git commit -m '🚀' && git push -u origin master"
   },
   "dependencies": {
     "next": "^9.2.0",
