@@ -15,8 +15,6 @@ export default () => {
     })
   }, [])
 
-  // console.log(moment.utc(launch_date).format('MM/DD/YYYY'))
-
   return (
     <div class="flex flex-col">
       <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
@@ -41,7 +39,15 @@ export default () => {
             </thead>
             <tbody class="bg-white">
               {
-                launches.data.map(value => <Launch rocket_name={value.rocket.rocket_name} />)
+                launches.data.map(value => (
+                  <Launch
+                    rocket_name={value.rocket.rocket_name}
+                    launch_date={moment.utc(value.launch_date_utc).format('MM/DD/YYYY')}
+                    img={value.links.mission_patch_small}
+                    launch_success={value.launch_success}
+                    upcoming={value.upcoming}
+                  />
+                ))
               }
             </tbody>
           </table>
