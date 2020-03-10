@@ -21,9 +21,7 @@ export default () => {
     })
   }, [])
   if (typeof launch.data !== 'undefined') {
-    if (typeof launch.data.flight_number !== 'undefined') {
-      console.log(launch.data.flight_number)
-    }
+    console.log(launch.data.flight_number)
   }
 
   // if (typeof hello == 'undefined') {
