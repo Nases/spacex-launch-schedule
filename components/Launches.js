@@ -3,20 +3,37 @@ const axios = require('axios')
 const moment = require('moment')
 
 export default () => {
-  const [launch, setLaunch] = useState({})
+  const [launch, setLaunch] = useState({
+    // data: {
+    //   flight_number: 0
+    // }
+  })
 
   useEffect(() => {
     axios.get('https://api.spacexdata.com/v3/launches/1').then(value => {
       var data = value.data
-      // data = JSON.stringify(data)
-      setLaunch({ data })
+      // var flight_number = data.flight_number
 
-
+      // console.log(flight_number)
+      setLaunch(prevState => ({
+        data
+      }))
     })
   }, [])
-  console.log(launch.data)
-  // var launch_date = launch.data.launch_date_utc
-  // console.log(launch_date)
+  if (typeof launch.data !== 'undefined') {
+    if (typeof launch.data.flight_number !== 'undefined') {
+      console.log(launch.data.flight_number)
+    }
+  }
+
+  // if (typeof hello == 'undefined') {
+  //   console.log('undefined yo')
+  // }
+
+  // const dataYo = JSON.stringify(launch.data)
+  // console.log(dataYo)
+  // console.log(launch.data)
+
 
 
   // console.log(moment.utc(launch_date).format('MM/DD/YYYY'))
