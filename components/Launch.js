@@ -16,7 +16,7 @@ export default ({ rocket_name, launch_date, img, launch_success, upcoming }) => 
       <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
         <div class="text-sm leading-5 text-gray-500">{launch_date}</div>
       </td>
-      <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+      <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 tooltip">
         {
           (launch_success)
             ?
@@ -35,8 +35,9 @@ export default ({ rocket_name, launch_date, img, launch_success, upcoming }) => 
               </span>
         }
       </td>
-      <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
-        Owner
+      <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500 tooltip">
+        <i class="fas fa-info-circle fa-2x"></i>
+        <span class='tooltip-text bg-blue-200 p-3 -mt-6 -ml-6 rounded text-gray-800'>Look at this!</span>
       </td>
       <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
         <a href="#" class="text-indigo-600 hover:text-indigo-900 focus:outline-none focus:underline">More</a>
