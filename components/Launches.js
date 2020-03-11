@@ -12,6 +12,7 @@ export default () => {
     axios.get('https://api.spacexdata.com/v3/launches').then(value => {
       var data = value.data
       setLaunches({ data })
+      console.log(data)
     })
   }, [])
 
@@ -44,6 +45,7 @@ export default () => {
                     launch_success={value.launch_success}
                     upcoming={value.upcoming}
                     mission_name={value.mission_name}
+                    details={value.details}
                   />
                 ))
               }

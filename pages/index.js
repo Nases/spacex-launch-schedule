@@ -6,7 +6,7 @@ export default () => (
   <Layout>
     <div>
       <Navbar />
-      <div className='container mx-auto px-4'>
+      <div className='container mx-auto px-4 sm:px-1'>
         <Launches />
       </div>
     </div>
