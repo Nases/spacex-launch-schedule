@@ -4,10 +4,11 @@ import Launches from '../components/Launches'
 
 export default () => (
   <Layout>
-    <div className='bg-gray-100'>
+    <div>
       <Navbar />
-      <h1 className="primary-text">SpaceX Flights</h1>
-      <Launches />
+      <div className='container mx-auto px-4'>
+        <Launches />
+      </div>
     </div>
   </Layout>
 )

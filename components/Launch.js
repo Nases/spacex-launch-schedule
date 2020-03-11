@@ -1,5 +1,5 @@
 
-export default ({ rocket_name, launch_date, img, launch_success, upcoming }) => {
+export default ({ rocket_name, launch_date, img, launch_success, upcoming, mission_name }) => {
   return (
     <tr>
       <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
@@ -9,7 +9,7 @@ export default ({ rocket_name, launch_date, img, launch_success, upcoming }) => 
           </div>
           <div class="ml-4">
             <div class="text-sm leading-5 font-medium text-gray-900">{rocket_name}</div>
-            <div class="text-sm leading-5 text-gray-500">bernardlane@example.com</div>
+            <div class="text-sm leading-5 text-gray-500">{mission_name}</div>
           </div>
         </div>
       </td>
@@ -35,12 +35,8 @@ export default ({ rocket_name, launch_date, img, launch_success, upcoming }) => 
               </span>
         }
       </td>
-      <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500 tooltip">
-        <i class="fas fa-info-circle fa-2x"></i>
-        <span class='tooltip-text bg-blue-200 p-3 -mt-6 -ml-6 rounded text-gray-800'>Look at this!</span>
-      </td>
       <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
-        <a href="#" class="text-indigo-600 hover:text-indigo-900 focus:outline-none focus:underline">More</a>
+        <a href="#" class="text-indigo-600 hover:text-indigo-900 focus:outline-none focus:underline">Details</a>
       </td>
     </tr>
   )
