@@ -27,13 +27,13 @@ export default ({ rocket_name, launch_date, img, launch_success, upcoming, missi
   // Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
   // Modal.setAppElement('#yourAppElement')
 
-  const [modalIsOpen, setIsOpen] = React.useState(false);
+  const [imgModalIsOpen, setImgModalIsOpen] = useState(false);
   function openModal() {
-    setIsOpen(true);
+    setImgModalIsOpen(true);
   }
 
   function closeModal() {
-    setIsOpen(false);
+    setImgModalIsOpen(false);
   }
 
 
@@ -44,7 +44,7 @@ export default ({ rocket_name, launch_date, img, launch_success, upcoming, missi
           <div class="flex-shrink-0 h-10 w-10">
             <img onClick={openModal} class="h-10 w-10 rounded-full cursor-pointer" src={img} alt="" />
             <Modal
-              isOpen={modalIsOpen}
+              isOpen={imgModalIsOpen}
               onRequestClose={closeModal}
               style={customStyles}
             >
