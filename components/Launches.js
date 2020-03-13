@@ -24,6 +24,18 @@ export default () => {
       : null
   }
 
+  function getTimeLeft(utc) {
+    var now = "04/09/2013 15:00:00";
+    var then = "02/09/2013 14:20:30";
+    moment.utc(value.launch_date_utc).format('MM/DD/YYYY')
+
+    var ms = moment(now, "DD/MM/YYYY HH:mm:ss").diff(moment(then, "DD/MM/YYYY HH:mm:ss"));
+    var d = moment.duration(ms);
+    var s = Math.floor(d.asHours()) + moment.utc(ms).format(":mm:ss");
+    console.log(s)
+  }
+  console.log(moment.utc())
+
   return (
     <div class="flex flex-col">
       <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
@@ -58,6 +70,8 @@ export default () => {
                       mission_name={value.mission_name}
                       details={value.details}
                       youtubeVideo={getYoutubeEmbedLink(value.links.video_link)}
+                      launch_number={value.flight_number}
+                      launch_site_name_long={value.launch_site.site_name_long}
                       img1={value.links.flickr_images[0]}
                     />
                   )

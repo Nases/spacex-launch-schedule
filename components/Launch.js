@@ -10,6 +10,8 @@ export default ({
   mission_name,
   details,
   youtubeVideo,
+  launch_number,
+  launch_site_name_long,
   img1
 }) => {
 
@@ -135,10 +137,37 @@ export default ({
           </div>
           <div class="ml-4">
             <div class="text-sm leading-5 font-medium text-gray-900">{rocket_name}</div>
-            <div class="text-sm leading-5 text-gray-500 tooltip">
+            <div onClick={openDetailsModal} class="text-sm leading-5 text-gray-500 tooltip">
               {mission_name}
               <div className='tooltip-text text-gray-800 bg-gray-300'>{details}</div>
             </div>
+            <Modal
+              isOpen={detailsModalIsOpen}
+              onRequestClose={closeDetailsModal}
+              style={detailsModalCustomStyles}
+            >
+              <div>
+                <div>
+                  <p>Launch number: {launch_number}</p>
+                  <p>
+                    Launch site:
+                    &nbsp;
+                    <a href={'https://www.google.com/search?q=' + launch_site_name_long} target='_blank'>{launch_site_name_long}</a>
+                  </p>
+                </div>
+                <div>
+                  Payload
+                </div>
+                <div>
+                  <p>Customer: </p>
+                  <p>Customer nationality: </p>
+                  <p>Payload: </p>
+                  <p>Payload Type: </p>
+                  <p>Payload weight: </p>
+
+                </div>
+              </div>
+            </Modal>
           </div>
         </div>
       </td>
@@ -165,11 +194,12 @@ export default ({
         }
       </td>
       <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-        {youtubeVideo
-          ?
-          <i onClick={openYoutubeModal} class="fab fa-youtube fa-2x text-red-700 hover:text-red-800 cursor-pointer"></i>
-          :
-          ''
+        {
+          youtubeVideo
+            ?
+            <i onClick={openYoutubeModal} class="fab fa-youtube fa-2x text-red-700 hover:text-red-800 cursor-pointer"></i>
+            :
+            ''
         }
         <Modal
           isOpen={youtubeModalIsOpen}
@@ -187,13 +217,6 @@ export default ({
           </iframe>
         </Modal>
       </td>
-      <Modal
-        isOpen={detailsModalIsOpen}
-        onRequestClose={closeDetailsModal}
-        style={detailsModalCustomStyles}
-      >
-        <span>Details</span>
-      </Modal>
     </tr>
   )
 }
