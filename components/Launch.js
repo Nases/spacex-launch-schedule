@@ -1,9 +1,17 @@
 import Modal from 'react-modal'
 import { useState } from 'react'
 
-export default ({ rocket_name, launch_date, img, launch_success, upcoming, mission_name, details }) => {
+export default ({
+  rocket_name,
+  launch_date,
+  patch,
+  launch_success,
+  upcoming,
+  mission_name,
+  details
+}) => {
 
-  const customStyles = {
+  const patchModalCustomStyles = {
     overlay: {
       position: 'fixed',
       top: 0,
@@ -27,13 +35,48 @@ export default ({ rocket_name, launch_date, img, launch_success, upcoming, missi
   // Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
   // Modal.setAppElement('#yourAppElement')
 
-  const [imgModalIsOpen, setImgModalIsOpen] = useState(false);
-  function openModal() {
-    setImgModalIsOpen(true);
+  const [patchModalIsOpen, setPatchModalIsOpen] = useState(false);
+  function openPatchModal() {
+    setPatchModalIsOpen(true);
   }
 
-  function closeModal() {
-    setImgModalIsOpen(false);
+  function closePatchModal() {
+    setPatchModalIsOpen(false);
+  }
+
+
+
+  const detailsModalCustomStyles = {
+    overlay: {
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundColor: 'rgba(100, 100, 100, 0.75)'
+    },
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+      background: null,
+      border: null
+    }
+  };
+
+  // Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
+  // Modal.setAppElement('#yourAppElement')
+
+  const [detailsModalIsOpen, setDetailsModalIsOpen] = useState(false);
+  function openDetailsModal() {
+    setDetailsModalIsOpen(true);
+  }
+
+  function closeDetailsModal() {
+    setDetailsModalIsOpen(false);
   }
 
 
@@ -42,13 +85,13 @@ export default ({ rocket_name, launch_date, img, launch_success, upcoming, missi
       <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
         <div class="flex items-center">
           <div class="flex-shrink-0 h-10 w-10">
-            <img onClick={openModal} class="h-10 w-10 rounded-full cursor-pointer" src={img} alt="" />
+            <img onClick={openPatchModal} class="h-10 w-10 rounded-full cursor-pointer" src={patch} alt="" />
             <Modal
-              isOpen={imgModalIsOpen}
-              onRequestClose={closeModal}
-              style={customStyles}
+              isOpen={patchModalIsOpen}
+              onRequestClose={closePatchModal}
+              style={patchModalCustomStyles}
             >
-              <img src={img} alt="" />
+              <img src={patch} alt="" />
             </Modal>
           </div>
           <div class="ml-4">
@@ -83,7 +126,14 @@ export default ({ rocket_name, launch_date, img, launch_success, upcoming, missi
         }
       </td>
       <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
-        <a href="#" class="text-indigo-600 hover:text-indigo-900 focus:outline-none focus:underline">Details</a>
+        <span onClick={openDetailsModal} class="text-indigo-600 hover:text-indigo-800 hover:underline focus:outline-none focus:underline cursor-pointer">Details</span>
+        <Modal
+          isOpen={detailsModalIsOpen}
+          onRequestClose={closeDetailsModal}
+          style={detailsModalCustomStyles}
+        >
+          hey
+        </Modal>
       </td>
     </tr>
   )
