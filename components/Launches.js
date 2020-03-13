@@ -12,7 +12,6 @@ export default () => {
     axios.get('https://api.spacexdata.com/v3/launches').then(value => {
       var data = value.data
       setLaunches({ data })
-      console.log(data)
     })
   }, [])
 
@@ -32,6 +31,9 @@ export default () => {
                 <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                   Status
                 </th>
+                <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                  Video
+                </th>
                 <th class="px-6 py-3 border-b border-gray-200 bg-gray-50"></th>
               </tr>
             </thead>
@@ -46,9 +48,12 @@ export default () => {
                     upcoming={value.upcoming}
                     mission_name={value.mission_name}
                     details={value.details}
+                    youtubeVideo={value.links.video_link}
+                    img1={value.links.flickr_images[0]}
                   />
                 ))
               }
+
             </tbody>
           </table>
         </div>

@@ -8,7 +8,9 @@ export default ({
   launch_success,
   upcoming,
   mission_name,
-  details
+  details,
+  youtubeVideo,
+  img1
 }) => {
 
   const patchModalCustomStyles = {
@@ -44,7 +46,7 @@ export default ({
     setPatchModalIsOpen(false);
   }
 
-
+  // ----------------------------------------------
 
   const detailsModalCustomStyles = {
     overlay: {
@@ -78,6 +80,43 @@ export default ({
   function closeDetailsModal() {
     setDetailsModalIsOpen(false);
   }
+
+  // ------------------------------------------------
+
+
+  const youtubeModalCustomStyles = {
+    overlay: {
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundColor: 'rgba(100, 100, 100, 0.75)'
+    },
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+      background: null,
+      border: null
+    }
+  };
+
+  // Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
+  // Modal.setAppElement('#yourAppElement')
+
+  const [youtubeModalIsOpen, setYoutubeModalIsOpen] = useState(false);
+  function openYoutubeModal() {
+    setYoutubeModalIsOpen(true);
+  }
+
+  function closeYoutubeModal() {
+    setYoutubeModalIsOpen(false);
+  }
+
 
 
   return (
@@ -125,15 +164,47 @@ export default ({
               </span>
         }
       </td>
+      <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+        {youtubeVideo
+          ?
+          <i onClick={openYoutubeModal} class="fab fa-youtube fa-2x text-red-700 hover:text-red-800 cursor-pointer"></i>
+          :
+          ''
+        }
+        {/* <i onClick={openYoutubeModal} class="fab fa-youtube fa-2x text-red-700 hover:text-red-800 cursor-pointer"></i> */}
+        <Modal
+          isOpen={youtubeModalIsOpen}
+          onRequestClose={closeYoutubeModal}
+          style={youtubeModalCustomStyles}
+        >
+          <iframe
+            width="900"
+            height="550"
+            src={youtubeVideo ? youtubeVideo.replace('watch?v=', 'embed/') : ''}
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          >
+          </iframe>
+        </Modal>
+      </td>
       <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
         <span onClick={openDetailsModal} class="text-indigo-600 hover:text-indigo-800 hover:underline focus:outline-none focus:underline cursor-pointer">Details</span>
-        <Modal
+        {/* <Modal
           isOpen={detailsModalIsOpen}
           onRequestClose={closeDetailsModal}
           style={detailsModalCustomStyles}
         >
-          hey
-        </Modal>
+          <iframe
+            width="1440"
+            height="548"
+            src={youtubeVideo ? youtubeVideo.replace('watch?v=', 'embed/') : ''}
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          >
+          </iframe>
+        </Modal> */}
       </td>
     </tr>
   )
