@@ -15,6 +15,16 @@ export default () => {
     })
   }, [])
 
+  function getYoutubeEmbedLink(url) {
+    if (!url) return undefined
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+    const match = url.match(regExp);
+
+    return (match && match[2].length === 11)
+      ? 'https://www.youtube.com/embed/' + match[2]
+      : null;
+  }
+
   return (
     <div class="flex flex-col">
       <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
@@ -39,21 +49,22 @@ export default () => {
             </thead>
             <tbody class="bg-white">
               {
-                launches.data.map(value => (
-                  <Launch
-                    rocket_name={value.rocket.rocket_name}
-                    launch_date={moment.utc(value.launch_date_utc).format('MM/DD/YYYY')}
-                    patch={value.links.mission_patch_small}
-                    launch_success={value.launch_success}
-                    upcoming={value.upcoming}
-                    mission_name={value.mission_name}
-                    details={value.details}
-                    youtubeVideo={value.links.video_link}
-                    img1={value.links.flickr_images[0]}
-                  />
-                ))
+                launches.data.map(value => {
+                  return (
+                    <Launch
+                      rocket_name={value.rocket.rocket_name}
+                      launch_date={moment.utc(value.launch_date_utc).format('MM/DD/YYYY')}
+                      patch={value.links.mission_patch_small}
+                      launch_success={value.launch_success}
+                      upcoming={value.upcoming}
+                      mission_name={value.mission_name}
+                      details={value.details}
+                      youtubeVideo={getYoutubeEmbedLink(value.links.video_link)}
+                      img1={value.links.flickr_images[0]}
+                    />
+                  )
+                })
               }
-
             </tbody>
           </table>
         </div>

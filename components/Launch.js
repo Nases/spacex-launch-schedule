@@ -171,7 +171,6 @@ export default ({
           :
           ''
         }
-        {/* <i onClick={openYoutubeModal} class="fab fa-youtube fa-2x text-red-700 hover:text-red-800 cursor-pointer"></i> */}
         <Modal
           isOpen={youtubeModalIsOpen}
           onRequestClose={closeYoutubeModal}
@@ -180,7 +179,7 @@ export default ({
           <iframe
             width="900"
             height="550"
-            src={youtubeVideo ? youtubeVideo.replace('watch?v=', 'embed/') : ''}
+            src={youtubeVideo}
             frameborder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
