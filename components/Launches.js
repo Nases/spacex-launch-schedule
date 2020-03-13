@@ -24,6 +24,7 @@ export default () => {
       : null
   }
 
+  var upcomingSeen = false
 
 
   return (
@@ -50,22 +51,28 @@ export default () => {
             <tbody class="bg-white">
               {
                 launches.data.map(value => {
-                  return (
-                    <Launch
-                      rocket_name={value.rocket.rocket_name}
-                      launch_date={moment.utc(value.launch_date_utc).format('MM/DD/YYYY')}
-                      patch={value.links.mission_patch_small}
-                      launch_success={value.launch_success}
-                      upcoming={value.upcoming}
-                      mission_name={value.mission_name}
-                      details={value.details}
-                      youtubeVideo={getYoutubeEmbedLink(value.links.video_link)}
-                      launch_number={value.flight_number}
-                      launch_site_name_long={value.launch_site.site_name_long}
-                      launch_date_utc={value.launch_date_utc}
-                      img1={value.links.flickr_images[0]}
-                    />
-                  )
+                  if (!upcomingSeen) {
+                    if (value.upcoming) {
+                      upcomingSeen = true
+                    }
+                    return (
+                      <Launch
+                        rocket_name={value.rocket.rocket_name}
+                        launch_date={moment.utc(value.launch_date_utc).format('MM/DD/YYYY')}
+                        patch={value.links.mission_patch_small}
+                        launch_success={value.launch_success}
+                        upcoming={value.upcoming}
+                        mission_name={value.mission_name}
+                        details={value.details}
+                        youtubeVideo={getYoutubeEmbedLink(value.links.video_link)}
+                        launch_number={value.flight_number}
+                        launch_site_name_long={value.launch_site.site_name_long}
+                        launch_date_utc={value.launch_date_utc}
+                        img1={value.links.flickr_images[0]}
+                      />
+                    )
+                  }
+
                 })
               }
             </tbody>
