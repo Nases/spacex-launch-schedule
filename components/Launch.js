@@ -187,24 +187,13 @@ export default ({
           </iframe>
         </Modal>
       </td>
-      <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
-        <span onClick={openDetailsModal} class="text-indigo-600 hover:text-indigo-800 hover:underline focus:outline-none focus:underline cursor-pointer">Details</span>
-        {/* <Modal
-          isOpen={detailsModalIsOpen}
-          onRequestClose={closeDetailsModal}
-          style={detailsModalCustomStyles}
-        >
-          <iframe
-            width="1440"
-            height="548"
-            src={youtubeVideo ? youtubeVideo.replace('watch?v=', 'embed/') : ''}
-            frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          >
-          </iframe>
-        </Modal> */}
-      </td>
+      <Modal
+        isOpen={detailsModalIsOpen}
+        onRequestClose={closeDetailsModal}
+        style={detailsModalCustomStyles}
+      >
+        <span>Details</span>
+      </Modal>
     </tr>
   )
 }
