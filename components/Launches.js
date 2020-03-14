@@ -4,9 +4,8 @@ const axios = require('axios')
 const moment = require('moment')
 
 export default () => {
-  const [launches, setLaunches] = useState({
-    data: []
-  })
+  const [launches, setLaunches] = useState({ data: [] })
+  const [isLaunchesReversed, setIsLaunchesReversed] = useState(false)
 
   useEffect(() => {
     axios.get('https://api.spacexdata.com/v3/launches').then(value => {
@@ -25,18 +24,17 @@ export default () => {
           i++
         }
       })
+      newArr.reverse()
       setLaunches({ data: newArr })
     })
   }, [])
 
   function reverseLaunches() {
-    setLaunches({ data: launches.data.reverse() })
+    if (launches.data) {
+      setIsLaunchesReversed(!isLaunchesReversed)
+      setLaunches({ data: launches.data.reverse() })
+    }
   }
-
-  if (launches.data) {
-    reverseLaunches()
-  }
-
 
   function getYoutubeEmbedLink(url) {
     if (!url) return undefined
@@ -57,8 +55,9 @@ export default () => {
                 <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                   Rocket Name
                 </th>
-                <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                  Launch Date
+                <th onClick={() => reverseLaunches()} class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider cursor-pointer">
+                  Launch Date &nbsp;
+                  {(isLaunchesReversed) ? <i class="fas fa-chevron-down"></i> : <i class="fas fa-chevron-up"></i>}
                 </th>
                 <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                   Status
