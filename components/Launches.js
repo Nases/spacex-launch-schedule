@@ -46,32 +46,33 @@ export default () => {
   }
 
   return (
-    <div class="flex flex-col">
-      <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
-        <div class="align-middle inline-block min-w-full shadow overflow-hidden sm:rounded-lg border-b border-gray-200">
-          <table class="min-w-full">
+    <div className="flex flex-col">
+      <div className="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+        <div className="align-middle inline-block min-w-full shadow overflow-hidden sm:rounded-lg border-b border-gray-200">
+          <table className="min-w-full">
             <thead className='bg-gray-100'>
               <tr>
-                <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                  Rocket Name
+                <th className="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                  Mission
                 </th>
-                <th onClick={() => reverseLaunches()} class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider cursor-pointer">
+                <th onClick={() => reverseLaunches()} className="text-center px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider cursor-pointer">
                   Launch Date &nbsp;
-                  {(isLaunchesReversed) ? <i class="fas fa-chevron-down"></i> : <i class="fas fa-chevron-up"></i>}
+                  {(isLaunchesReversed) ? <i className="fas fa-chevron-down"></i> : <i className="fas fa-chevron-up"></i>}
                 </th>
-                <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                <th className="text-center px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                   Status
                 </th>
-                <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                <th className="text-center px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                   Video
                 </th>
               </tr>
             </thead>
-            <tbody class="bg-white">
+            <tbody className="bg-white">
               {
                 launches.data.map(value => {
                   return (
                     <Launch
+                      key={value.flight_number}
                       rocket_name={value.rocket.rocket_name}
                       launch_date={moment.utc(value.launch_date_utc).format('MM/DD/YYYY')}
                       patch={value.links.mission_patch_small}
@@ -83,6 +84,7 @@ export default () => {
                       launch_number={value.flight_number}
                       launch_site_name_long={value.launch_site.site_name_long}
                       launch_date_utc={value.launch_date_utc}
+                      wikipedia={value.links.wikipedia}
                       img1={value.links.flickr_images[0]}
                     />
                   )
