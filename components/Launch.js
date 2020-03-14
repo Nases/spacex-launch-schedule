@@ -34,7 +34,7 @@ export default ({
     // console.log(moment().utc().format('DD/MM/YYYY HH:mm:ss'))
   }
 
-  (upcoming) ? getTimeLeft(launch_date_utc) : ''
+  // (upcoming) ? getTimeLeft(launch_date_utc) : ''
 
   const patchModalCustomStyles = {
     overlay: {

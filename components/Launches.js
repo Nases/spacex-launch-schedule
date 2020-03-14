@@ -11,9 +11,32 @@ export default () => {
   useEffect(() => {
     axios.get('https://api.spacexdata.com/v3/launches').then(value => {
       var data = value.data
-      setLaunches({ data })
+
+      // Make sure there will be only one upcoming launch
+      var upcomingSeen = false
+      var i = 0
+      var newArr = []
+      data.map(value => {
+        if (!upcomingSeen) {
+          if (value.upcoming) {
+            upcomingSeen = true
+          }
+          newArr[i] = value
+          i++
+        }
+      })
+      setLaunches({ data: newArr })
     })
   }, [])
+
+  function reverseLaunches() {
+    setLaunches({ data: launches.data.reverse() })
+  }
+
+  if (launches.data) {
+    reverseLaunches()
+  }
+
 
   function getYoutubeEmbedLink(url) {
     if (!url) return undefined
@@ -23,9 +46,6 @@ export default () => {
       ? 'https://www.youtube.com/embed/' + match[2]
       : null
   }
-
-  var upcomingSeen = false
-
 
   return (
     <div class="flex flex-col">
@@ -51,28 +71,22 @@ export default () => {
             <tbody class="bg-white">
               {
                 launches.data.map(value => {
-                  if (!upcomingSeen) {
-                    if (value.upcoming) {
-                      upcomingSeen = true
-                    }
-                    return (
-                      <Launch
-                        rocket_name={value.rocket.rocket_name}
-                        launch_date={moment.utc(value.launch_date_utc).format('MM/DD/YYYY')}
-                        patch={value.links.mission_patch_small}
-                        launch_success={value.launch_success}
-                        upcoming={value.upcoming}
-                        mission_name={value.mission_name}
-                        details={value.details}
-                        youtubeVideo={getYoutubeEmbedLink(value.links.video_link)}
-                        launch_number={value.flight_number}
-                        launch_site_name_long={value.launch_site.site_name_long}
-                        launch_date_utc={value.launch_date_utc}
-                        img1={value.links.flickr_images[0]}
-                      />
-                    )
-                  }
-
+                  return (
+                    <Launch
+                      rocket_name={value.rocket.rocket_name}
+                      launch_date={moment.utc(value.launch_date_utc).format('MM/DD/YYYY')}
+                      patch={value.links.mission_patch_small}
+                      launch_success={value.launch_success}
+                      upcoming={value.upcoming}
+                      mission_name={value.mission_name}
+                      details={value.details}
+                      youtubeVideo={getYoutubeEmbedLink(value.links.video_link)}
+                      launch_number={value.flight_number}
+                      launch_site_name_long={value.launch_site.site_name_long}
+                      launch_date_utc={value.launch_date_utc}
+                      img1={value.links.flickr_images[0]}
+                    />
+                  )
                 })
               }
             </tbody>
@@ -80,7 +94,5 @@ export default () => {
         </div>
       </div>
     </div>
-
-
   )
 }
