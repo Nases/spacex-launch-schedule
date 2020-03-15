@@ -161,7 +161,7 @@ export default ({
       </td>
       <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-center">
         {
-          youtubeVideo
+          (youtubeVideo)
             ?
             <i onClick={openYoutubeModal} className="fab fa-youtube fa-2x text-red-700 hover:text-red-800 cursor-pointer"></i>
             :
