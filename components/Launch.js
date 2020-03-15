@@ -18,11 +18,23 @@ export default ({
   const [timeLeft, setTimeLeft] = useState('')
 
   function getTimeLeft(utc) {
+    var meassurements = ["years", "months", "weeks", "days", "hours", "minutes", "seconds"];
+    var withPadding = (duration) => {
+      var step = null;
+      return meassurements.map((m) => duration[m]()).filter((n, i, a) => {
+        var nonEmpty = Boolean(n);
+        if (nonEmpty || step || i >= a.length - 2) {
+          step = true;
+        }
+        return step;
+      }).map((n) => ('0' + n).slice(-2)).join(':')
+    }
     var eventTime = moment(utc).valueOf()
     var currentTime = moment().utc().valueOf()
     var diffTime = eventTime - currentTime;
     var duration = moment.duration(diffTime, 'milliseconds')
-    return (duration.hours() + ':' + duration.minutes() + ':' + duration.seconds())
+    return withPadding(duration) // 02:15:01:11 (simple output)
+    // return (duration.days() + ':' + duration.hours() + ':' + duration.minutes() + ':' + duration.seconds())
   }
 
   useEffect(() => {
