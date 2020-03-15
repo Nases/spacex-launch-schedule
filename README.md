@@ -6,6 +6,7 @@
 * [NEXT.js](https://nextjs.org/docs/getting-started)
 * [tailwindcss](https://tailwindcss.com/docs/installation/)
 * [axios](https://www.npmjs.com/package/axios)
+* [moment](https://momentjs.com/)
 
 ### Helpers
 * [Hero Patterns](http://www.heropatterns.com/)
