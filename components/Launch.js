@@ -184,8 +184,7 @@ export default ({
           style={youtubeModalCustomStyles}
         >
           <iframe
-            width="900"
-            height="550"
+            className='youtubeVideo'
             src={youtubeVideo}
             frameborder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"

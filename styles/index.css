@@ -24,3 +24,14 @@ body {
   visibility: visible;
 }
 
+.youtubeVideo {
+  width: auto;
+  height: auto;
+}
+
+@media (min-width: 768px) {
+  .youtubeVideo {
+    width: 900px;
+    height: 550px;
+  }
+}
