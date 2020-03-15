@@ -10,6 +10,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <link rel="shortcut icon" href="/favicon.png" />
           <script src="https://kit.fontawesome.com/c9c5a1adc4.js" crossorigin="anonymous"></script>
         </Head>
         <body>
