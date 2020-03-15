@@ -34,7 +34,6 @@ export default ({
     var diffTime = eventTime - currentTime;
     var duration = moment.duration(diffTime, 'milliseconds')
     return withPadding(duration) // 02:15:01:11 (simple output)
-    // return (duration.days() + ':' + duration.hours() + ':' + duration.minutes() + ':' + duration.seconds())
   }
 
   useEffect(() => {
