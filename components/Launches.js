@@ -46,9 +46,9 @@ export default () => {
   }
 
   return (
-    <div className="flex flex-col">
-      <div className="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
-        <div className="align-middle inline-block min-w-full shadow overflow-hidden sm:rounded-lg border-b border-gray-200">
+    <div className="flex flex-col p-0 m-0 md:m-8 lg:mx-32">
+      <div className="overflow-x-auto">
+        <div className="align-middle inline-block min-w-full shadow overflow-hidden rounded-lg border-b border-gray-200">
           <table className="min-w-full">
             <thead className='bg-gray-100'>
               <tr>

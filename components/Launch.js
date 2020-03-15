@@ -118,8 +118,16 @@ export default ({
           <div className="ml-4">
             <div className="text-sm leading-5 font-medium text-gray-900">{rocket_name}</div>
             <div className="text-sm leading-5 text-gray-500 tooltip hover:text-gray-800">
-              <a href={wikipedia} target='_blank'>{mission_name}</a>
-              <div className='tooltip-text text-gray-800 bg-gray-300'>{details}</div>
+              <a className='whitespace-normal' href={wikipedia} target='_blank'>{mission_name}</a>
+              {
+                (details)
+                  ?
+                  <div className='tooltip-text text-gray-800 bg-gray-300 whitespace-normal text-left w-2/5 p-4 rounded-lg'>
+                    {details}
+                  </div>
+                  :
+                  ''
+              }
             </div>
           </div>
         </div>

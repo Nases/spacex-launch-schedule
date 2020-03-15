@@ -5,9 +5,7 @@ import Footer from '../components/Footer'
 export default () => (
   <Layout>
     <div>
-      <div className='container mx-auto px-4 my-8 sm:px-1'>
-        <Launches />
-      </div>
+      <Launches />
       <Footer />
     </div>
   </Layout>
