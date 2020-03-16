@@ -10,7 +10,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <meta name="description" content="Detailed information about SpaceX launches 🚀" />
+          <meta name="description" content="Get detailed information about SpaceX launches 🚀" />
           <link rel="shortcut icon" href="/favicon.png" />
           <script src="https://kit.fontawesome.com/c9c5a1adc4.js" crossorigin="anonymous"></script>
         </Head>
