@@ -10,10 +10,16 @@
     height: 550px;
   }
 }
+@media (max-width: 768px) {
+  .youtubeVideo {
+    width: auto;
+    height: auto;
+  }
+}
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   body { 
-    zoom: .6 !important
+    zoom: .6;
   }
 }
 
@@ -37,9 +43,4 @@ body {
 
 .tooltip:hover .tooltip-text {
   visibility: visible;
-}
-
-.youtubeVideo {
-  width: auto;
-  height: auto;
 }
