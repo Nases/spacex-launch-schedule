@@ -8,7 +8,7 @@ export default ({ children }) => {
       window.GA_INITIALIZED = true
     }
     logPageView()
-  })
+  }, [])
   return (
     <div>
       <Head>
