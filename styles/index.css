@@ -13,9 +13,11 @@
 
 @media (max-width: 600px) {
   body { 
-    zoom: .6 !important; 
+    zoom: .6 !important
   }
 }
+
+
 
 body {
   background-color: #474647;
