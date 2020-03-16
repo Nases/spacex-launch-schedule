@@ -12,7 +12,7 @@
 }
 
 @media (max-width: 640px) {
-  html { 
+  body { 
     zoom: .6; 
   }
 }
