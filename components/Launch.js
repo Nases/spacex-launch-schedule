@@ -117,13 +117,13 @@ export default ({
       <td className="py-2 sm:px-6 sm:py-4 whitespace-no-wrap border-b border-gray-200">
         <div className="flex items-center">
           <div className="flex-shrink-0 h-10 w-10">
-            <img onClick={openPatchModal} className="h-10 w-10 rounded-full cursor-pointer" src={patch} alt="" />
+            <img onClick={openPatchModal} className="h-10 w-10 rounded-full cursor-pointer" src={patch} alt={mission_name + ' patch'} />
             <Modal
               isOpen={patchModalIsOpen}
               onRequestClose={closePatchModal}
               style={patchModalCustomStyles}
             >
-              <img src={patch} alt="" />
+              <img src={patch} alt={mission_name + ' patch'} />
             </Modal>
           </div>
           <div className="ml-4">

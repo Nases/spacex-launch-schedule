@@ -1,4 +1,8 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
+import ReactGA from 'react-ga'
+
+const trackingId = "UA-160643323-1"
+ReactGA.initialize(trackingId)
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -15,6 +19,7 @@ class MyDocument extends Document {
           <meta name="description" content="Detailed information about SpaceX launches 🚀" />
           <link rel="shortcut icon" href="/favicon.png" />
           <script src="https://kit.fontawesome.com/c9c5a1adc4.js" crossorigin="anonymous"></script>
+
         </Head>
         <body>
           <Main />
