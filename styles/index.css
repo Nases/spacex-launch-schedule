@@ -13,7 +13,7 @@
 
 @media (max-width: 640px) {
   body { 
-    zoom: .6; 
+    zoom: .6 !important; 
   }
 }
 
