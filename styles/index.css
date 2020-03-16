@@ -1,6 +1,11 @@
 /* purgecss start ignore */
 @tailwind base;
 @tailwind components;
+@media (max-width: 640px) {
+  body { 
+    zoom: .6; 
+  }
+}
 /* purgecss end ignore */
 @tailwind utilities;
 
@@ -11,11 +16,7 @@
   }
 }
 
-@media (max-width: 640px) {
-  body { 
-    zoom: .6; 
-  }
-}
+
 
 body {
   background-color: #474647;
