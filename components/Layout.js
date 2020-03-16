@@ -12,7 +12,7 @@ export default ({ children }) => {
   return (
     <div>
       <Head>
-        <title>SpaceX Launches</title>
+        <title>SpaceX Launch Schedule | Live</title>
       </Head>
       <div>
         {children}
