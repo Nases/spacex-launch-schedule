@@ -9,7 +9,7 @@ export const getYoutubeEmbedLink = (url) => {
     : null
 }
 
-// given utc time get time left in scaleable simple output -> 02:15:01:11 
+// given utc time get time left in scaleable simple output -> 02:15:01:11 or 1515412312 & -123124214
 export const getTimeLeft = (utc, valueOf = false) => {
   var meassurements = ["years", "months", "weeks", "days", "hours", "minutes", "seconds"];
   var withPadding = (duration) => {
@@ -27,5 +27,4 @@ export const getTimeLeft = (utc, valueOf = false) => {
   var diffTime = eventTime - currentTime;
   var duration = moment.duration(diffTime, 'milliseconds')
   return valueOf ? duration._milliseconds : withPadding(duration)
-  // return withPadding(duration) // 02:15:01:11 (simple output)
 }

@@ -26,7 +26,6 @@ export default () => {
         }
       })
       newArr.reverse()
-      console.log(newArr)
       if (getTimeLeft(newArr[0].launch_date_utc, true) < 0 && newArr[0].upcoming) {
         newArr.shift()
       }
