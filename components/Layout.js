@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { initGA, logPageView } from '../assets/utils/main'
+import { initGA, logPageView } from '../assets/utils/analytics'
 
 export default ({ children }) => {
   React.useEffect(() => {

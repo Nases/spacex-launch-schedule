@@ -12,7 +12,7 @@ class MyDocument extends Document {
         <Head>
           <meta name="description" content="Get detailed information about SpaceX launch schedule." />
           <link rel="shortcut icon" href="/favicon.png" />
-          <script src="https://kit.fontawesome.com/c9c5a1adc4.js" crossorigin="anonymous"></script>
+          <script src="https://kit.fontawesome.com/c9c5a1adc4.js" crossOrigin="anonymous"></script>
         </Head>
         <body>
           <Main />

@@ -1,6 +1,7 @@
 import Modal from 'react-modal'
 import { useState, useEffect } from 'react'
 import moment from 'moment'
+import { getTimeLeft } from '../assets/utils/utils'
 
 export default ({
   rocket_name,
@@ -16,26 +17,6 @@ export default ({
 }) => {
 
   const [timeLeft, setTimeLeft] = useState('')
-  // given utc time get time left in scaleable simple output -> 02:15:01:11 
-
-  function getTimeLeft(utc) {
-    var meassurements = ["years", "months", "weeks", "days", "hours", "minutes", "seconds"];
-    var withPadding = (duration) => {
-      var step = null;
-      return meassurements.map((m) => duration[m]()).filter((n, i, a) => {
-        var nonEmpty = Boolean(n);
-        if (nonEmpty || step || i >= a.length - 2) {
-          step = true;
-        }
-        return step;
-      }).map((n) => ('0' + n).slice(-2)).join(':')
-    }
-    var eventTime = moment(utc).valueOf()
-    var currentTime = moment().utc().valueOf()
-    var diffTime = eventTime - currentTime;
-    var duration = moment.duration(diffTime, 'milliseconds')
-    return withPadding(duration) // 02:15:01:11 (simple output)
-  }
 
   useEffect(() => {
     if (upcoming) {
@@ -43,7 +24,6 @@ export default ({
       return () => clearInterval(intervalId)
     }
   }, [])
-
 
   // Make sure to bind modal to appElement (http://reactcommunity.org/react-modal/accessibility/)
   Modal.setAppElement('#__next')

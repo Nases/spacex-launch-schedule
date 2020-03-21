@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import Launch from './Launch'
 const axios = require('axios')
 const moment = require('moment')
+import { getYoutubeEmbedLink, getTimeLeft } from '../assets/utils/utils'
 
 export default () => {
   const [launches, setLaunches] = useState({ data: [] })
@@ -25,6 +26,10 @@ export default () => {
         }
       })
       newArr.reverse()
+      console.log(newArr)
+      if (getTimeLeft(newArr[0].launch_date_utc, true) < 0 && newArr[0].upcoming) {
+        newArr.shift()
+      }
       setLaunches({ data: newArr })
     })
   }, [])
@@ -34,15 +39,6 @@ export default () => {
       setIsLaunchesReversed(!isLaunchesReversed)
       setLaunches({ data: launches.data.reverse() })
     }
-  }
-
-  function getYoutubeEmbedLink(url) {
-    if (!url) return undefined
-    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/
-    const match = url.match(regExp)
-    return (match && match[2].length === 11)
-      ? 'https://www.youtube.com/embed/' + match[2]
-      : null
   }
 
   return (
