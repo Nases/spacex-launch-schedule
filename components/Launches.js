@@ -26,6 +26,8 @@ export default () => {
         }
       })
       newArr.reverse()
+
+      // if upcoming launch's date is past then remove upcoming launch
       if (getTimeLeft(newArr[0].launch_date_utc, true) < 0 && newArr[0].upcoming) {
         newArr.shift()
       }
