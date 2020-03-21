@@ -16,6 +16,7 @@ export default ({
 }) => {
 
   const [timeLeft, setTimeLeft] = useState('')
+  // given utc time get time left in scaleable simple output -> 02:15:01:11 
 
   function getTimeLeft(utc) {
     var meassurements = ["years", "months", "weeks", "days", "hours", "minutes", "seconds"];
