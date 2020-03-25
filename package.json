@@ -5,7 +5,8 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "save": "git add . && git commit -m '🚀' && git push -u origin master"
+    "save": "git add . && git commit -m '🚀' && git push -u origin master",
+    "build-static": "next build && next export"
   },
   "dependencies": {
     "axios": "^0.19.2",
