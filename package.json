@@ -5,13 +5,14 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
+    "bs": "rm -rf .next && npm run build && npm run start",
     "save": "git add . && git commit -m '🚀' && git push -u origin master",
-    "build-static": "next build && next export"
+    "export": "next export"
   },
   "dependencies": {
     "axios": "^0.19.2",
     "moment": "^2.24.0",
-    "next": "^9.2.0",
+    "next": "latest",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-ga": "^2.7.0",

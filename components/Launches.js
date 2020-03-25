@@ -4,71 +4,36 @@ const axios = require('axios')
 const moment = require('moment')
 import { getYoutubeEmbedLink, getTimeLeft } from '../assets/utils/utils'
 
-export async function getStaticProps() {
-  // const res = await fetch('https://api.github.com/repos/developit/preact')
-  // const json = await res.json() // better use it inside try .. catch
-  axios.get('https://api.spacexdata.com/v3/launches').then(value => {
-    var data = value.data
-    // Make sure there will be only one upcoming launch
-    var upcomingSeen = false
-    var i = 0
-    var newArr = []
-    data.map(value => {
-      if (!upcomingSeen) {
-        if (value.upcoming) {
-          upcomingSeen = true
-        }
-        newArr[i] = value
-        i++
-      }
-    })
-    newArr.reverse()
-    // if upcoming launch's date is past then remove upcoming launch
-    if (getTimeLeft(newArr[0].launch_date_utc, true) < 0 && newArr[0].upcoming) {
-      newArr.shift()
-    }
-    // setLaunches({ data: newArr })
-  })
-
-  return {
-    props: {
-      data: "try",
-    },
-  }
-}
-
-
-export default function Launches({ data }) {
-  console.log(data)
-  const [launches, setLaunches] = useState({ data: [] })
+export default ({ launchesData }) => {
+  const [launches, setLaunches] = useState({ data: launchesData })
   const [isLaunchesReversed, setIsLaunchesReversed] = useState(false)
 
-  useEffect(() => {
-    axios.get('https://api.spacexdata.com/v3/launches').then(value => {
-      var data = value.data
+  // useEffect(() => {
+  //   axios.get('https://api.spacexdata.com/v3/launches').then(value => {
+  //     var data = value.data
 
-      // Make sure there will be only one upcoming launch
-      var upcomingSeen = false
-      var i = 0
-      var newArr = []
-      data.map(value => {
-        if (!upcomingSeen) {
-          if (value.upcoming) {
-            upcomingSeen = true
-          }
-          newArr[i] = value
-          i++
-        }
-      })
-      newArr.reverse()
+  //     // Make sure there will be only one upcoming launch
+  //     var upcomingSeen = false
+  //     var i = 0
+  //     var newArr = []
+  //     data.map(value => {
+  //       if (!upcomingSeen) {
+  //         if (value.upcoming) {
+  //           upcomingSeen = true
+  //         }
+  //         newArr[i] = value
+  //         i++
+  //       }
+  //     })
+  //     newArr.reverse()
 
-      // if upcoming launch's date is past then remove upcoming launch
-      if (getTimeLeft(newArr[0].launch_date_utc, true) < 0 && newArr[0].upcoming) {
-        newArr.shift()
-      }
-      setLaunches({ data: newArr })
-    })
-  }, [])
+  //     // if upcoming launch's date is past then remove upcoming launch
+  //     if (getTimeLeft(newArr[0].launch_date_utc, true) < 0 && newArr[0].upcoming) {
+  //       newArr.shift()
+  //     }
+  //     setLaunches({ data: newArr })
+  //   })
+  // }, [])
 
   function reverseLaunches() {
     if (launches.data) {
