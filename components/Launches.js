@@ -38,7 +38,7 @@ export async function getStaticProps() {
 }
 
 
-export default ({ data }) => {
+export default function Launches({ data }) {
   console.log(data)
   const [launches, setLaunches] = useState({ data: [] })
   const [isLaunchesReversed, setIsLaunchesReversed] = useState(false)
