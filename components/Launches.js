@@ -5,7 +5,6 @@ const moment = require('moment')
 import { getYoutubeEmbedLink, getTimeLeft } from '../assets/utils/utils'
 
 export default ({ launchesData }) => {
-  const [launches, setLaunches] = useState({ data: launchesData })
   const [isLaunchesReversed, setIsLaunchesReversed] = useState(false)
 
   // useEffect(() => {
@@ -36,9 +35,9 @@ export default ({ launchesData }) => {
   // }, [])
 
   function reverseLaunches() {
-    if (launches.data) {
+    if (launchesData) {
       setIsLaunchesReversed(!isLaunchesReversed)
-      setLaunches({ data: launches.data.reverse() })
+      setLaunches({ data: launchesData.reverse() })
     }
   }
 
@@ -66,7 +65,7 @@ export default ({ launchesData }) => {
             </thead>
             <tbody className="bg-white">
               {
-                launches.data.map(value => {
+                launchesData.map(value => {
                   return (
                     <Launch
                       key={value.flight_number}
