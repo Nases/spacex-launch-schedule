@@ -37,7 +37,7 @@ export default ({ launchesData }) => {
   function reverseLaunches() {
     if (launchesData) {
       setIsLaunchesReversed(!isLaunchesReversed)
-      setLaunches({ data: launchesData.reverse() })
+      launchesData.reverse()
     }
   }
 
