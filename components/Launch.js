@@ -169,7 +169,7 @@ export default ({
             src={youtubeVideo}
             frameborder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
+            allowFullScreen="true"
           >
           </iframe>
         </Modal>
