@@ -71,7 +71,7 @@ export default () => {
                     <Launch
                       key={value.flight_number}
                       rocket_name={value.rocket.rocket_name}
-                      launch_date={moment.utc(value.launch_date_utc).format('DD MMMM YYYY')}
+                      launch_date={moment.utc(value.launch_date_utc).format('DD MMM YYYY')}
                       patch={value.links.mission_patch_small}
                       launch_success={value.launch_success}
                       upcoming={value.upcoming}
