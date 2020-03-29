@@ -6,6 +6,7 @@ import { getTimeLeft } from '../assets/utils/utils'
 
 
 export async function getStaticProps() {
+  console.log('test')
   const newArr = await axios.get('https://api.spacexdata.com/v3/launches').then(value => {
     var data = value.data
     // Make sure there will be only one upcoming launch
