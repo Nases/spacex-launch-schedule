@@ -2,6 +2,7 @@ import Modal from 'react-modal'
 import { useState, useEffect } from 'react'
 import moment from 'moment'
 import { getTimeLeft } from '../assets/utils/utils'
+import Img from 'react-cool-img';
 
 export default ({
   rocket_name,
@@ -98,7 +99,15 @@ export default ({
       <td className="py-2 sm:px-6 sm:py-4 whitespace-no-wrap border-b border-gray-200">
         <div className="flex items-center">
           <div className="flex-shrink-0 h-10 w-10">
-            <img onClick={openPatchModal} className="h-10 w-10 rounded-full cursor-pointer" src={patch} alt={mission_name + ' patch'} />
+            {/* <img onClick={openPatchModal} className="h-10 w-10 rounded-full cursor-pointer" src={patch} alt={mission_name + ' patch'} /> */}
+            <Img
+              className="h-10 w-10 rounded-full cursor-pointer"
+              // placeholder={loadingImage}
+              src={patch}
+              // error={errorImage}
+              alt="React Cool Img"
+              onClick={openPatchModal}
+            />
             <Modal
               isOpen={patchModalIsOpen}
               onRequestClose={closePatchModal}
