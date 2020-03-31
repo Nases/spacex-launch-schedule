@@ -9,5 +9,4 @@
 * [moment](https://momentjs.com/)
 
 ### Helpers
-* [Hero Patterns](http://www.heropatterns.com/)
 * [fontawesome](https://fontawesome.com/)
