@@ -1,38 +1,10 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Launch from './Launch'
-const axios = require('axios')
 const moment = require('moment')
-import { getYoutubeEmbedLink, getTimeLeft } from '../assets/utils/utils'
+import { getYoutubeEmbedLink } from '../assets/utils/utils'
 
 export default ({ launchesData }) => {
   const [isLaunchesReversed, setIsLaunchesReversed] = useState(false)
-
-  // useEffect(() => {
-  //   axios.get('https://api.spacexdata.com/v3/launches').then(value => {
-  //     var data = value.data
-
-  //     // Make sure there will be only one upcoming launch
-  //     var upcomingSeen = false
-  //     var i = 0
-  //     var newArr = []
-  //     data.map(value => {
-  //       if (!upcomingSeen) {
-  //         if (value.upcoming) {
-  //           upcomingSeen = true
-  //         }
-  //         newArr[i] = value
-  //         i++
-  //       }
-  //     })
-  //     newArr.reverse()
-
-  //     // if upcoming launch's date is past then remove upcoming launch
-  //     if (getTimeLeft(newArr[0].launch_date_utc, true) < 0 && newArr[0].upcoming) {
-  //       newArr.shift()
-  //     }
-  //     setLaunches({ data: newArr })
-  //   })
-  // }, [])
 
   function reverseLaunches() {
     if (launchesData) {
