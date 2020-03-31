@@ -113,8 +113,7 @@ export default ({
             </Modal>
           </div>
           <div className="ml-4">
-            <div className="text-sm leading-5 font-medium text-gray-900">{rocket_name}</div>
-            <div className="text-sm leading-5 text-gray-500 tooltip hover:text-gray-800">
+            <div className="text-sm leading-5 tooltip font-medium text-gray-900">
               <a className='whitespace-normal' href={wikipedia} target='_blank'>{mission_name}</a>
               {
                 (details)
@@ -125,6 +124,10 @@ export default ({
                   :
                   ''
               }
+            </div>
+            <div className="text-sm leading-5 text-gray-500 hover:text-gray-800">
+              {rocket_name}
+
             </div>
           </div>
         </div>
