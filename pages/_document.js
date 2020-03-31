@@ -14,7 +14,7 @@ class MyDocument extends Document {
           <link rel="shortcut icon" href="/favicon.png" />
           <script src="https://kit.fontawesome.com/c9c5a1adc4.js" crossOrigin="anonymous"></script>
         </Head>
-        <body>
+        <body className='bg-gray-900'>
           <Main />
           <NextScript />
         </body>
