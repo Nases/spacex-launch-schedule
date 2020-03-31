@@ -101,11 +101,9 @@ export default ({
           <div className="flex-shrink-0 h-10 w-10">
             {/* <img onClick={openPatchModal} className="h-10 w-10 rounded-full cursor-pointer" src={patch} alt={mission_name + ' patch'} /> */}
             <Img
-              className="h-10 w-10 rounded-full cursor-pointer"
-              // placeholder={loadingImage}
+              className="bg-gray-600 h-10 w-10 rounded-full cursor-pointer"
               src={patch}
-              // error={errorImage}
-              alt="React Cool Img"
+              alt={mission_name + ' patch'}
               onClick={openPatchModal}
             />
             <Modal
