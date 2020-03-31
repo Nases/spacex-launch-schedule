@@ -99,7 +99,7 @@ export default ({
         <div className="flex items-center">
           <div className="flex-shrink-0 h-10 w-10">
             <Img
-              className="bg-gray-600 h-10 w-10 rounded-full cursor-pointer"
+              className="bg-gray-200 h-10 w-10 rounded-full cursor-pointer"
               src={patch}
               alt={mission_name + ' patch'}
               onClick={openPatchModal}
