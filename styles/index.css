@@ -26,6 +26,8 @@ body {
 }
 
 .tooltip .tooltip-text {
+  margin-left: 10px;
+  margin-top: 10px;
   visibility: hidden;
   position: absolute;
   z-index: 100;
