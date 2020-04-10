@@ -118,7 +118,7 @@ export default ({
               {
                 (details)
                   ?
-                  <div className='tooltip-text text-gray-800 bg-gray-300 whitespace-normal text-left w-2/5 p-4 rounded-lg'>
+                  <div className='tooltip-text text-gray-800 bg-white whitespace-normal text-left w-2/5 p-4 rounded-lg border border-gray-900'>
                     {details}
                   </div>
                   :
