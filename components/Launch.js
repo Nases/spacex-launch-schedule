@@ -125,7 +125,7 @@ export default ({
                   ''
               }
             </div>
-            <div className="text-sm leading-5 text-gray-500 hover:text-gray-800">
+            <div className="text-sm leading-5 text-gray-500">
               {rocket_name}
             </div>
           </div>
