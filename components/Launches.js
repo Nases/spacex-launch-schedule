@@ -53,7 +53,6 @@ export default ({ launchesData }) => {
                       launch_site_name_long={value.launch_site.site_name_long}
                       launch_date_utc={value.launch_date_utc}
                       wikipedia={value.links.wikipedia}
-                      img1={value.links.flickr_images[0]}
                     />
                   )
                 })
