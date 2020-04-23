@@ -12,8 +12,7 @@ export default ({
   mission_name,
   details,
   youtubeVideo,
-  launch_date_utc,
-  wikipedia,
+  launch_date_utc
 }) => {
 
   const [timeLeft, setTimeLeft] = useState('')

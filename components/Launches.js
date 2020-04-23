@@ -52,7 +52,6 @@ export default ({ launchesData }) => {
                       launch_number={value.flight_number}
                       launch_site_name_long={value.launch_site.site_name_long}
                       launch_date_utc={value.launch_date_utc}
-                      wikipedia={value.links.wikipedia}
                     />
                   )
                 })
