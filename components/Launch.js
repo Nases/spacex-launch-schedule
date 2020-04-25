@@ -14,7 +14,6 @@ export default ({
   youtubeVideo,
   launch_date_utc
 }) => {
-
   const [timeLeft, setTimeLeft] = useState('')
 
   useEffect(() => {
@@ -145,10 +144,10 @@ export default ({
               ?
               <div>
                 <p className='text-sm leading-5 text-gray-600'>
-                  {timeLeft}
+                  {(getTimeLeft(launch_date_utc, true) > 0) ? timeLeft : ''}
                 </p>
                 <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-teal-100 text-teal-800">
-                  Upcoming
+                  {(getTimeLeft(launch_date_utc, true) > 0) ? 'Upcoming' : 'Launched'}
                 </span>
               </div>
               :
