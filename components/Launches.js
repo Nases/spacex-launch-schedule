@@ -5,6 +5,64 @@ import { getYoutubeEmbedLink } from '../assets/utils/utils'
 
 export default ({ launchesData }) => {
   const [isLaunchesReversed, setIsLaunchesReversed] = useState(false)
+  const [currentPage, setCurrentPage] = useState(1)
+  const [launchesPerPage, setLaunchesPerPage] = useState(20)
+
+  function handlePageChange(event) {
+    setCurrentPage(event.target.id)
+  }
+
+  function userOnLastPage() {
+    return currentPage == pageNumbers[pageNumbers.length - 1]
+  }
+
+  function userOnFirstPage() {
+    return currentPage == 1
+  }
+
+  function nextPage() {
+    if (!userOnLastPage()) {
+      setCurrentPage(value => value + 1)
+    }
+  }
+
+  function previousPage() {
+    if (!userOnFirstPage()) {
+      setCurrentPage(value => value - 1)
+    }
+  }
+
+  // Logic for displaying page numbers
+  const pageNumbers = []
+  for (let i = 1; i <= Math.ceil(launchesData.length / launchesPerPage); i++) {
+    pageNumbers.push(i)
+  }
+
+  // logic for displaying launches
+  const indexOfLastLaunch = currentPage * launchesPerPage
+  const indexOfFirstLaunch = indexOfLastLaunch - launchesPerPage
+  const currentLaunches = launchesData.slice(indexOfFirstLaunch, indexOfLastLaunch)
+
+  const renderPageNumbers = pageNumbers.map(pageNumber => {
+    return (
+      <div>
+        <button
+          id={pageNumber}
+          onClick={handlePageChange}
+          type="button"
+          class={currentPage == pageNumber
+            ?
+            "-ml-px relative inline-flex items-center px-4 py-2 cursor-auto border border-gray-300 bg-blue-600 text-sm leading-5 font-medium text-white transition ease-in-out duration-150"
+            :
+            "-ml-px relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white hover:bg-gray-200 text-sm leading-5 font-medium text-gray-700 transition ease-in-out duration-150"
+          }
+          disabled={currentPage == pageNumber}
+        >
+          {pageNumber}
+        </button>
+      </div>
+    )
+  })
 
   function reverseLaunches() {
     if (launchesData) {
@@ -37,7 +95,7 @@ export default ({ launchesData }) => {
             </thead>
             <tbody className="bg-white">
               {
-                launchesData.map(value => {
+                currentLaunches.map(value => {
                   return (
                     <Launch
                       key={value.flight_number}
@@ -58,8 +116,56 @@ export default ({ launchesData }) => {
               }
             </tbody>
           </table>
+
+          <div class="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
+            <div class="flex-1 flex justify-between sm:hidden">
+              <a
+                onClick={previousPage}
+                class={userOnFirstPage()
+                  ?
+                  "cursor-auto relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-500 bg-white hover:bg-gray-200 transition ease-in-out duration-150"
+                  :
+                  "cursor-pointer relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-200 transition ease-in-out duration-150"}
+              >
+                Previous
+              </a>
+              <a
+                onClick={nextPage}
+                class={userOnLastPage()
+                  ?
+                  "cursor-auto ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-500 bg-white hover:bg-gray-200 transition ease-in-out duration-150"
+                  :
+                  "cursor-pointer ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-200 transition ease-in-out duration-150"}
+              >
+                Next
+              </a>
+            </div>
+            <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+              <div>
+                <p class="text-sm leading-5 text-gray-700">
+                  Showing
+                  &nbsp;
+                  <span class="font-medium">{indexOfFirstLaunch + 1}</span>
+                  &nbsp;
+                  to
+                  &nbsp;
+                  <span class="font-medium">{userOnLastPage() ? ((launchesData.length % launchesPerPage) + ((currentPage - 1) * launchesPerPage)) : indexOfLastLaunch}</span>
+                  &nbsp;
+                  of
+                  &nbsp;
+                  <span class="font-medium">{launchesData.length}</span>
+                  &nbsp;
+                  results
+                </p>
+              </div>
+              <span class="relative inline-flex shadow-sm">
+                {renderPageNumbers}
+              </span>
+            </div>
+          </div>
+
         </div>
       </div>
-    </div>
+    </div >
   )
 }
