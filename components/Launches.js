@@ -124,9 +124,9 @@ export default ({ launchesData }) => {
                 onClick={previousPage}
                 class={userOnFirstPage()
                   ?
-                  "cursor-auto relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-500 bg-white hover:bg-gray-200 transition ease-in-out duration-150"
+                  "cursor-auto relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-500 bg-white"
                   :
-                  "cursor-pointer relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-200 transition ease-in-out duration-150"}
+                  "cursor-pointer relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-700 bg-white"}
               >
                 Previous
               </a>
@@ -135,9 +135,9 @@ export default ({ launchesData }) => {
                 onClick={nextPage}
                 class={userOnLastPage()
                   ?
-                  "cursor-auto ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-500 bg-white hover:bg-gray-200 transition ease-in-out duration-150"
+                  "cursor-auto ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-500 bg-white"
                   :
-                  "cursor-pointer ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-200 transition ease-in-out duration-150"}
+                  "cursor-pointer ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-700 bg-white"}
               >
                 Next
               </a>
