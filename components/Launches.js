@@ -3,10 +3,12 @@ import Launch from './Launch'
 const moment = require('moment')
 import { getYoutubeEmbedLink } from '../assets/utils/utils'
 
-export default ({ launchesData }) => {
+export default ({ launchesData, nextUpcomingLaunch }) => {
   const [isLaunchesReversed, setIsLaunchesReversed] = useState(false)
   const [currentPage, setCurrentPage] = useState(1)
   const [launchesPerPage, setLaunchesPerPage] = useState(20)
+
+  console.log(nextUpcomingLaunch)
 
   function handlePageChange(event) {
     setCurrentPage(event.target.id)
@@ -160,7 +162,7 @@ export default ({ launchesData }) => {
                   &nbsp;
                   <span className="font-medium">{launchesData.length}</span>
                   &nbsp;
-                  results
+                  launches
                 </p>
               </div>
               <span className="relative inline-flex shadow-sm">

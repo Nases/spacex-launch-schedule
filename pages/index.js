@@ -12,14 +12,21 @@ export async function getStaticProps() {
     var upcomingSeen = false
     var i = 0
     var newArr = []
+    var nextUpcomingLaunch = 1;
+    // var exitLoopAfter = true
     data.map(value => {
       if (!upcomingSeen) {
+        newArr[i] = value
+        i++
         if (value.upcoming) {
           upcomingSeen = true
         }
-        newArr[i] = value
-        i++
       }
+      // else if (exitLoopAfter) {
+      // console.log('test')
+      // exitLoopAfter = false
+      // nextUpcomingLaunch = value
+      // }
     })
     newArr.reverse()
     // if upcoming launch's date is past then remove upcoming launch
@@ -40,7 +47,7 @@ export default ({ data }) => {
   return (
     <Layout>
       <div>
-        <Launches launchesData={JSON.parse(data)} />
+        <Launches launchesData={JSON.parse(data)} nextUpcomingLaunch />
         <Footer />
       </div>
     </Layout>
