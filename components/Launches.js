@@ -120,6 +120,7 @@ export default ({ launchesData }) => {
           <div class="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
             <div class="flex-1 flex justify-between sm:hidden">
               <a
+                disabled={userOnFirstPage()}
                 onClick={previousPage}
                 class={userOnFirstPage()
                   ?
@@ -130,6 +131,7 @@ export default ({ launchesData }) => {
                 Previous
               </a>
               <a
+                disabled={userOnLastPage()}
                 onClick={nextPage}
                 class={userOnLastPage()
                   ?
