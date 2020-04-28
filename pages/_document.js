@@ -11,6 +11,7 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <meta name="description" content="Get detailed information about SpaceX launch schedule." />
+          <meta name="viewport" content="width=device-width,height=device-height initial-scale=1" />
           <link rel="shortcut icon" href="/favicon.png" />
           <script src="https://kit.fontawesome.com/c9c5a1adc4.js" crossOrigin="anonymous"></script>
         </Head>

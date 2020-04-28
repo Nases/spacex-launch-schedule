@@ -45,22 +45,21 @@ export default ({ launchesData }) => {
 
   const renderPageNumbers = pageNumbers.map(pageNumber => {
     return (
-      <div>
-        <button
-          id={pageNumber}
-          onClick={handlePageChange}
-          type="button"
-          class={currentPage == pageNumber
-            ?
-            "-ml-px relative inline-flex items-center px-4 py-2 cursor-auto border border-gray-300 bg-blue-600 text-sm leading-5 font-medium text-white transition ease-in-out duration-150"
-            :
-            "-ml-px relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white hover:bg-gray-200 text-sm leading-5 font-medium text-gray-700 transition ease-in-out duration-150"
-          }
-          disabled={currentPage == pageNumber}
-        >
-          {pageNumber}
-        </button>
-      </div>
+      <button
+        id={pageNumber}
+        key={pageNumber}
+        onClick={handlePageChange}
+        type="button"
+        className={currentPage == pageNumber
+          ?
+          "-ml-px relative inline-flex items-center px-4 py-2 cursor-auto border border-gray-300 bg-blue-600 text-sm leading-5 font-medium text-white transition ease-in-out duration-150"
+          :
+          "-ml-px relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white hover:bg-gray-200 text-sm leading-5 font-medium text-gray-700 transition ease-in-out duration-150"
+        }
+        disabled={currentPage == pageNumber}
+      >
+        {pageNumber}
+      </button>
     )
   })
 
@@ -75,6 +74,8 @@ export default ({ launchesData }) => {
     <div className="flex flex-col p-0 m-0 md:my-8 lg:mx-32 xl:mx-64">
       <div className="overflow-x-auto">
         <div className="align-middle inline-block min-w-full shadow overflow-hidden rounded-lg border-b border-gray-200">
+
+          {/* launches table content start */}
           <table className="min-w-full">
             <thead className='bg-gray-100'>
               <tr>
@@ -116,13 +117,15 @@ export default ({ launchesData }) => {
               }
             </tbody>
           </table>
+          {/* launches table content end */}
 
-          <div class="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
-            <div class="flex-1 flex justify-between sm:hidden">
+          {/* pagination start */}
+          <div className="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
+            <div className="flex-1 flex justify-between sm:hidden">
               <a
                 disabled={userOnFirstPage()}
                 onClick={previousPage}
-                class={userOnFirstPage()
+                className={userOnFirstPage()
                   ?
                   "cursor-auto relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-500 bg-white"
                   :
@@ -133,7 +136,7 @@ export default ({ launchesData }) => {
               <a
                 disabled={userOnLastPage()}
                 onClick={nextPage}
-                class={userOnLastPage()
+                className={userOnLastPage()
                   ?
                   "cursor-auto ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-500 bg-white"
                   :
@@ -142,29 +145,31 @@ export default ({ launchesData }) => {
                 Next
               </a>
             </div>
-            <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+            <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
               <div>
-                <p class="text-sm leading-5 text-gray-700">
+                <p className="text-sm leading-5 text-gray-700">
                   Showing
                   &nbsp;
-                  <span class="font-medium">{indexOfFirstLaunch + 1}</span>
+                  <span className="font-medium">{indexOfFirstLaunch + 1}</span>
                   &nbsp;
                   to
                   &nbsp;
-                  <span class="font-medium">{userOnLastPage() ? ((launchesData.length % launchesPerPage) + ((currentPage - 1) * launchesPerPage)) : indexOfLastLaunch}</span>
+                  <span className="font-medium">{userOnLastPage() ? ((launchesData.length % launchesPerPage) + ((currentPage - 1) * launchesPerPage)) : indexOfLastLaunch}</span>
                   &nbsp;
                   of
                   &nbsp;
-                  <span class="font-medium">{launchesData.length}</span>
+                  <span className="font-medium">{launchesData.length}</span>
                   &nbsp;
                   results
                 </p>
               </div>
-              <span class="relative inline-flex shadow-sm">
+              <span className="relative inline-flex shadow-sm">
                 {renderPageNumbers}
               </span>
             </div>
           </div>
+          {/* pagination end */}
+
 
         </div>
       </div>
