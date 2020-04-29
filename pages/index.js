@@ -16,15 +16,15 @@ export async function getStaticProps() {
     var secondUpcoming
 
 
-    var upcomingSeen = false
+    var upcomingSeen = 0
     var i = 0
     var newArr = []
     data.map(value => {
-      if (!upcomingSeen) {
+      if (upcomingSeen != 2) {
         newArr[i] = value
         i++
         if (value.upcoming) {
-          upcomingSeen = true
+          upcomingSeen++
         }
       }
     })
@@ -39,9 +39,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      data: JSON.stringify(newArr),
-      // nextUpcoming: JSON.stringify(),
-      // secondUpcoming: JSON.stringify()
+      data: JSON.stringify(newArr)
     },
   }
 }
