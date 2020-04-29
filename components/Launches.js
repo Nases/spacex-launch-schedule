@@ -2,13 +2,16 @@ import { useState } from 'react'
 import Launch from './Launch'
 const moment = require('moment')
 import { getYoutubeEmbedLink } from '../assets/utils/utils'
+import { getTimeLeft } from '../assets/utils/utils'
 
-export default ({ launchesData, nextUpcomingLaunch }) => {
+
+export default ({ launchesData }) => {
   const [isLaunchesReversed, setIsLaunchesReversed] = useState(false)
   const [currentPage, setCurrentPage] = useState(1)
   const [launchesPerPage, setLaunchesPerPage] = useState(20)
 
-  console.log(nextUpcomingLaunch)
+
+  // check next upcoming if launched or not, if launched then add the second upcoming to the array
 
   function handlePageChange(event) {
     setCurrentPage(event.target.id)
@@ -135,6 +138,19 @@ export default ({ launchesData, nextUpcomingLaunch }) => {
               >
                 Previous
               </a>
+              <div className='pt-2'>
+                <p className="text-sm leading-5 text-gray-700">
+                  <span className="font-medium">{indexOfFirstLaunch + 1}</span>
+                  &nbsp;
+                  to
+                  &nbsp;
+                  <span className="font-medium">{userOnLastPage() ? ((launchesData.length % launchesPerPage) + ((currentPage - 1) * launchesPerPage)) : indexOfLastLaunch}</span>
+                  &nbsp;
+                  of
+                  &nbsp;
+                  <span className="font-medium">{launchesData.length}</span>
+                </p>
+              </div>
               <a
                 disabled={userOnLastPage()}
                 onClick={nextPage}
