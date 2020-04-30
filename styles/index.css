@@ -3,8 +3,12 @@
 @tailwind components;
 /* purgecss end ignore */
 
-*, ::before, ::after {
-  
+h1 {
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 20px;
 }
 
 @media (min-width: 768px) {
