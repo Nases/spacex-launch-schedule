@@ -14,7 +14,7 @@ export async function getStaticProps() {
     var i = 0
     var newArr = []
     data.map(value => {
-      if (upcomingCounter != numberOfUpcomingToBeShown) {
+      if (upcomingCounter !== numberOfUpcomingToBeShown) {
         newArr[i] = value
         i++
         if (value.upcoming) {
