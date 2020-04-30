@@ -47,10 +47,8 @@ export async function getStaticProps() {
 export default ({ data }) => {
   return (
     <Layout>
-      <div>
-        <Launches launchesData={JSON.parse(data)} />
-        <Footer />
-      </div>
+      <Launches launchesData={JSON.parse(data)} />
+      <Footer />
     </Layout>
   )
 }

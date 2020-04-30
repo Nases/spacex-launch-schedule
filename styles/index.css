@@ -3,6 +3,9 @@
 @tailwind components;
 /* purgecss end ignore */
 
+*, ::before, ::after {
+  
+}
 
 @media (min-width: 768px) {
   .youtubeVideo {
@@ -32,13 +35,13 @@ button:focus {
 .tooltip .tooltip-text {
   margin-left: 30px;
   margin-top: 15px;
-  visibility: hidden;
+  display: none;
   position: absolute;
   z-index: 100;
 }
 
 .tooltip:hover .tooltip-text {
-  visibility: visible;
+  display: inherit;
 }
 
 
