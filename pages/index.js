@@ -9,16 +9,16 @@ export async function getStaticProps() {
   const newArr = await axios.get('https://api.spacexdata.com/v3/launches').then(value => {
     var data = value.data
 
-    var upcomingSeen = 0
+    var upcomingCounter = 0
     var numberOfUpcomingToBeShown = 2
     var i = 0
     var newArr = []
     data.map(value => {
-      if (upcomingSeen != numberOfUpcomingToBeShown) {
+      if (upcomingCounter != numberOfUpcomingToBeShown) {
         newArr[i] = value
         i++
         if (value.upcoming) {
-          upcomingSeen++
+          upcomingCounter++
         }
       }
     })
