@@ -172,9 +172,9 @@ export default ({
           <iframe
             className='youtubeVideo'
             src={youtubeVideo}
-            frameborder="0"
+            frameBorder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen="true"
+            allowFullScreen={true}
           >
           </iframe>
         </Modal>
