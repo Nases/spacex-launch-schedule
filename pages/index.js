@@ -8,19 +8,13 @@ import { getTimeLeft } from '../assets/utils/utils'
 export async function getStaticProps() {
   const newArr = await axios.get('https://api.spacexdata.com/v3/launches').then(value => {
     var data = value.data
-    // Make sure there will be only one upcoming launch
-
-
-    // what I want
-    var nextUpcoming
-    var secondUpcoming
-
 
     var upcomingSeen = 0
+    var numberOfUpcomingToBeShown = 2
     var i = 0
     var newArr = []
     data.map(value => {
-      if (upcomingSeen != 2) {
+      if (upcomingSeen != numberOfUpcomingToBeShown) {
         newArr[i] = value
         i++
         if (value.upcoming) {
