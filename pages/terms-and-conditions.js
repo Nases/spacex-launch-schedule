@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 export default () => {
   return (
-    <Layout>
+    <Layout title='Terms and Conditions | SpaceX Launch Schedule'>
       <div className="flex flex-col p-0 m-0 md:my-8 lg:mx-32 xl:mx-64">
         <div className="overflow-x-auto">
           <div className="align-middle inline-block min-w-full shadow overflow-hidden rounded-lg border-b border-gray-200">

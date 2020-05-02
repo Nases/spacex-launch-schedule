@@ -40,7 +40,7 @@ export async function getStaticProps() {
 
 export default ({ data }) => {
   return (
-    <Layout>
+    <Layout title='SpaceX Launch Schedule | Live'>
       <Launches launchesData={JSON.parse(data)} />
       <Footer />
     </Layout>

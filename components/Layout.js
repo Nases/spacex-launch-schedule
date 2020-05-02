@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { initGA, logPageView } from '../assets/utils/analytics'
 
-export default ({ children }) => {
+export default ({ children, title }) => {
   React.useEffect(() => {
     if (!window.GA_INITIALIZED) {
       initGA()
@@ -12,7 +12,7 @@ export default ({ children }) => {
   return (
     <div>
       <Head>
-        <title>SpaceX Launch Schedule | Live</title>
+        <title>{title}</title>
       </Head>
       <div>
         {children}
