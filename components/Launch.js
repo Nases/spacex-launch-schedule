@@ -93,7 +93,7 @@ export default ({
 
   return (
     <tr className='hover:bg-gray-200'>
-      <td className="py-2 sm:px-6 sm:py-4 whitespace-no-wrap border-b border-gray-200">
+      <td className="px-2 py-2 sm:px-6 sm:py-4 whitespace-no-wrap border-b border-gray-200">
         <div className="flex items-center">
           <div className="flex-shrink-0 h-10 w-10">
             <Img
@@ -156,7 +156,7 @@ export default ({
               </span>
         }
       </td>
-      <td className="py-2 sm:px-6 sm:py-4 whitespace-no-wrap border-b border-gray-200 text-center">
+      <td className="px-1 py-2 sm:px-6 sm:py-4 whitespace-no-wrap border-b border-gray-200 text-center">
         {
           (youtubeVideo)
             ?
