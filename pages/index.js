@@ -38,7 +38,7 @@ export async function getStaticProps() {
     props: {
       data: JSON.stringify(newArr)
     },
-    revalidate: 60 * 60 * 12,
+    revalidate: 60 * 60,
   }
 }
 
