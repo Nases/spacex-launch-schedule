@@ -13,7 +13,7 @@
     "axios": "^0.19.2",
     "moment": "^2.27.0",
     "moment-duration-format": "^2.3.2",
-    "next": "^9.5.1",
+    "next": "^9.5.4",
     "react": "^16.13.1",
     "react-cool-img": "^1.2.1",
     "react-dom": "^16.13.1",
