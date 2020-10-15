@@ -76,7 +76,8 @@ export default ({ launchesData }) => {
   }
 
   return (
-    <div className="flex flex-col p-0 my-0 md:my-8 lg:mx-32 xl:mx-64">
+    // <div className="flex flex-col p-0 my-0 md:my-8 lg:mx-32 xl:mx-64">
+    <div className="flex flex-col p-0 my-0 md:my-8 lg:max-w-2xl xl:max-w-3xl m-auto">
       <div className="overflow-x-auto">
         <div className="align-middle inline-block min-w-full shadow overflow-hidden rounded-lg border-b border-gray-200">
 
