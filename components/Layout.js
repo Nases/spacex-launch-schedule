@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { initGA, logPageView } from '../assets/utils/analytics'
 
-export default ({ children, title }) => {
+const Layout = ({ children, title }) => {
   React.useEffect(() => {
     if (!window.GA_INITIALIZED) {
       initGA()
@@ -14,9 +14,13 @@ export default ({ children, title }) => {
       <Head>
         <title>{title}</title>
       </Head>
-      <div>
-        {children}
+      <div className='stars'>
+        <div className='pt-4 twinkling'>
+          {children}
+        </div>
       </div>
     </div>
   )
 }
+
+export default Layout

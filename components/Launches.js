@@ -5,7 +5,7 @@ import { getYoutubeEmbedLink } from '../assets/utils/utils'
 import { getTimeLeft } from '../assets/utils/utils'
 
 
-export default ({ launchesData }) => {
+const Launches = ({ launchesData }) => {
   const [isLaunchesReversed, setIsLaunchesReversed] = useState(false)
   const [currentPage, setCurrentPage] = useState(1)
   const [launchesPerPage, setLaunchesPerPage] = useState(20)
@@ -76,7 +76,6 @@ export default ({ launchesData }) => {
   }
 
   return (
-    // <div className="flex flex-col p-0 my-0 md:my-8 lg:mx-32 xl:mx-64">
     <div className="flex flex-col p-0 my-0 md:my-8 lg:max-w-2xl xl:max-w-3xl m-auto">
       <div className="overflow-x-auto">
         <div className="align-middle inline-block min-w-full shadow overflow-hidden rounded-lg border-b border-gray-200">
@@ -90,7 +89,7 @@ export default ({ launchesData }) => {
                 </th>
                 <th onClick={() => reverseLaunches()} className="py-2 text-center sm:px-6 sm:py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider cursor-pointer">
                   Launch Date &nbsp;
-                  {(isLaunchesReversed) ? <i className="fas fa-chevron-down"></i> : <i className="fas fa-chevron-up"></i>}
+                  {(isLaunchesReversed) ? <i aria-hidden className="fas fa-chevron-down"></i> : <i aria-hidden className="fas fa-chevron-up"></i>}
                 </th>
                 <th className="py-2 text-center sm:px-6 sm:py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                   Status
@@ -195,3 +194,5 @@ export default ({ launchesData }) => {
     </div >
   )
 }
+
+export default Launches

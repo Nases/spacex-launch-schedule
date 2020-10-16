@@ -3,6 +3,13 @@
 @tailwind components;
 /* purgecss end ignore */
 
+
+body {
+  background: #141414;
+  background-image: url(/star-background.svg);
+  background-attachment: fixed;
+}
+
 h1 {
   font-size: 24px;
 }

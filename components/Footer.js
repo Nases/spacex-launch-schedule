@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-export default () => {
+const Footer = () => {
   return (
     <footer className="mt-10 pt-4 border-gray-500 border-t-2 border-solid text-gray-300 text-lg text-center p-4">
       <div>
@@ -29,9 +29,11 @@ export default () => {
         |
         &nbsp;
         <a href="https://github.com/Nases/spacex-launches" target="_blank">
-          <i className="fab fa-github hover:text-white"></i>
+          <i aria-hidden className="fab fa-github hover:text-white"></i>
         </a>
       </div>
     </footer>
   )
 }
+
+export default Footer
