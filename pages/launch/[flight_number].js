@@ -75,7 +75,7 @@ const LaunchDetails = () => {
 
 
   return (
-    <Layout title={title} description={description}>
+    <Layout title={title + ' | SpaceX Launch Schedule'} description={description}>
       {
         launchData ?
           <div className="flex flex-col px-2 mt-2 md:my-8 lg:max-w-2xl xl:max-w-3xl m-auto">
@@ -191,22 +191,22 @@ const LaunchDetails = () => {
                         </iframe>
                       </Modal>
                     </dl>
-                  </div>
-                  <div className="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-                    <dt className="text-sm leading-5 font-medium text-gray-500">
-                      Rocket
+                    <div className="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
+                      <dt className="text-sm leading-5 font-medium text-gray-500">
+                        Rocket
+                      </dt>
+                      <dd className="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+                        {rocket_name}
+                      </dd>
+                    </div>
+                    <div className="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
+                      <dt className="text-sm leading-5 font-medium text-gray-500">
+                        Launch Site
                     </dt>
-                    <dd className="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                      {rocket_name}
-                    </dd>
-                  </div>
-                  <div className="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
-                    <dt className="text-sm leading-5 font-medium text-gray-500">
-                      Launch Site
-                    </dt>
-                    <dd className="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                      {launch_site}
-                    </dd>
+                      <dd className="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+                        {launch_site}
+                      </dd>
+                    </div>
                   </div>
                 </div>
               </div>
