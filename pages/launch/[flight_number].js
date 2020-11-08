@@ -62,15 +62,15 @@ const LaunchDetails = () => {
       background: null,
       border: null
     }
-  };
+  }
 
-  const [youtubeModalIsOpen, setYoutubeModalIsOpen] = useState(false);
+  const [youtubeModalIsOpen, setYoutubeModalIsOpen] = useState(false)
   function openYoutubeModal() {
-    setYoutubeModalIsOpen(true);
+    setYoutubeModalIsOpen(true)
   }
 
   function closeYoutubeModal() {
-    setYoutubeModalIsOpen(false);
+    setYoutubeModalIsOpen(false)
   }
 
 
