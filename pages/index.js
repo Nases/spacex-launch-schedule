@@ -42,11 +42,13 @@ export async function getStaticProps() {
   }
 }
 
-export default ({ data }) => {
+const Home = ({ data }) => {
   return (
-    <Layout title='SpaceX Launch Schedule | Live'>
+    <Layout title='SpaceX Launch Schedule | Live' description='Get detailed information about SpaceX launch schedule.'>
       <Launches launchesData={JSON.parse(data)} />
-      <Footer />
     </Layout>
   )
 }
+
+
+export default Home

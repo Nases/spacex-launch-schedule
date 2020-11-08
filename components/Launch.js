@@ -2,8 +2,11 @@ import Modal from 'react-modal'
 import { useState, useEffect } from 'react'
 import { getTimeLeft } from '../assets/utils/utils'
 import Img from 'react-cool-img'
+import { Router, useRouter } from 'next/router'
+
 
 const Launch = ({
+  flight_number,
   rocket_name,
   launch_date,
   patch,
@@ -15,6 +18,7 @@ const Launch = ({
   launch_date_utc
 }) => {
   const [timeLeft, setTimeLeft] = useState('')
+  const router = useRouter()
 
   useEffect(() => {
     if (upcoming) {
@@ -127,10 +131,10 @@ const Launch = ({
 
   return (
     <>
-      <tr className='hover:bg-gray-200 cursor-pointer' onClick={openLaunchDetailsModal}>
+      <tr className='hover:bg-gray-200 cursor-pointer' onClick={() => router.push(`/launch/${flight_number}`)}>
         <td className="pl-2 py-2 sm:px-6 sm:py-4 whitespace-no-wrap border-b border-gray-200">
           <div className="flex items-center">
-            <div className="flex-shrink-0 h-10 w-10">
+            <div className="hidden md:flex-shrink-0 md:h-10 md:w-10">
               <Img
                 className="bg-gray-200 h-10 w-10 rounded-full cursor-pointer"
                 src={patch}
@@ -145,7 +149,7 @@ const Launch = ({
                 <img src={patch} alt={mission_name + ' patch'} />
               </Modal>
             </div>
-            <div className="ml-4">
+            <div className="ml-1 md:ml-4">
               <div className="text-sm leading-5 tooltip font-medium text-gray-900">
                 <div className='whitespace-normal'>{mission_name}</div>
                 {

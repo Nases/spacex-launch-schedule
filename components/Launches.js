@@ -76,7 +76,7 @@ const Launches = ({ launchesData }) => {
   }
 
   return (
-    <div className="flex flex-col p-0 my-0 md:my-8 lg:max-w-2xl xl:max-w-3xl m-auto">
+    <div className="flex flex-col px-2 mt-4 md:my-8 lg:max-w-2xl xl:max-w-3xl m-auto">
       <div className="overflow-x-auto">
         <div className="align-middle inline-block min-w-full shadow overflow-hidden rounded-lg border-b border-gray-200">
 
@@ -84,7 +84,7 @@ const Launches = ({ launchesData }) => {
           <table className="min-w-full">
             <thead className='bg-gray-100'>
               <tr>
-                <th className="py-2 text-center sm:px-6 sm:py-3 border-b border-gray-200 bg-gray-50 sm:text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                <th className="py-2 max-w-md w-4/12 md:w-6/12 text-center sm:px-6 sm:py-3 border-b border-gray-200 bg-gray-50 sm:text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                   Mission
                 </th>
                 <th onClick={() => reverseLaunches()} className="py-2 text-center sm:px-6 sm:py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider cursor-pointer">
@@ -105,6 +105,7 @@ const Launches = ({ launchesData }) => {
                   return (
                     <Launch
                       key={value.flight_number}
+                      flight_number={value.flight_number}
                       rocket_name={value.rocket.rocket_name}
                       launch_date={moment.utc(value.launch_date_utc).format('DD MMM YYYY')}
                       patch={value.links.mission_patch_small}

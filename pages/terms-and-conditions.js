@@ -2,7 +2,8 @@ import Layout from '../components/Layout'
 import Footer from '../components/Footer'
 import Link from 'next/link'
 
-export default () => {
+
+const TermsAndConditions = () => {
   return (
     <Layout title='Terms and Conditions | SpaceX Launch Schedule'>
       <div className="flex flex-col p-0 m-0 md:my-8 lg:mx-32 xl:mx-64">
@@ -106,7 +107,9 @@ export default () => {
           </div>
         </div>
       </div>
-      <Footer />
     </Layout>
   )
 }
+
+
+export default TermsAndConditions

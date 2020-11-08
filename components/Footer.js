@@ -2,9 +2,10 @@ import Link from 'next/link'
 
 const Footer = () => {
   return (
-    <footer className="mt-10 pt-4 border-gray-500 border-t-2 border-solid text-gray-300 text-lg text-center p-4">
+    <footer className="mt-10 pt-4 border-gray-800 border-t border-solid text-gray-300 text-lg text-center p-4 bg-gray-900">
       <div>
         This is not an official <a className='hover:text-white' href="https://www.spacex.com/" target="_blank">SpaceX</a> service.
+        Data is provided by <a className='hover:text-white' href="https://docs.spacexdata.com/" target="_blank">spacexdata.com</a>.
       </div>
       <div>
         &copy; {new Date().getFullYear()}{' '}
