@@ -97,11 +97,10 @@ const Launch = ({
 
   // ------------------------------------------------
 
-  // onClick={() => router.push(`/launch/${flight_number}`)}
 
   return (
     <>
-      <tr className='hover:bg-gray-200 cursor-pointer' onClick={() => console.log('nope')}>
+      <tr className='hover:bg-gray-200 cursor-pointer' onClick={() => router.push(`/launch/${flight_number}`)}>
         <td className="pl-2 py-2 sm:px-6 sm:py-4 whitespace-no-wrap border-b border-gray-200">
           <div className="flex items-center">
             <div className="hidden md:flex md:flex-shrink-0 md:h-10 md:w-10">
@@ -160,13 +159,20 @@ const Launch = ({
           {
             (youtubeVideo)
               ?
-              <i aria-hidden onClick={openYoutubeModal} className="fab fa-youtube fa-2x text-red-700 hover:text-red-800 cursor-pointer"></i>
+              <i aria-hidden onClick={e => {
+                e.stopPropagation()
+                openYoutubeModal()
+              }
+              } className="fab fa-youtube fa-2x text-red-700 hover:text-red-800 cursor-pointer"></i>
               :
               ''
           }
           <Modal
             isOpen={youtubeModalIsOpen}
-            onRequestClose={closeYoutubeModal}
+            onRequestClose={e => {
+              e.stopPropagation()
+              closeYoutubeModal()
+            }}
             style={youtubeModalCustomStyles}
           >
             <iframe
