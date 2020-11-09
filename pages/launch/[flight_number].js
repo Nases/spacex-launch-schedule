@@ -81,7 +81,7 @@ const LaunchDetails = () => {
   return (
     <Layout title={title + ' | SpaceX Launch Schedule'} description={description}>
       {
-        launchData && false ?
+        launchData ?
           <div className="flex flex-col px-2 mt-2 md:my-8 lg:max-w-2xl xl:max-w-3xl m-auto">
             <div className="overflow-x-auto">
               <div className="align-middle inline-block min-w-full shadow overflow-hidden rounded-lg border-b border-gray-200 bg-white">
