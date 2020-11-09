@@ -108,11 +108,17 @@ const Launch = ({
                 className="bg-gray-200 h-10 w-10 rounded-full cursor-pointer"
                 src={patch}
                 alt={mission_name + ' patch'}
-                onClick={openPatchModal}
+                onClick={e => {
+                  e.stopPropagation()
+                  openPatchModal()
+                }}
               />
               <Modal
                 isOpen={patchModalIsOpen}
-                onRequestClose={closePatchModal}
+                onRequestClose={e => {
+                  e.stopPropagation()
+                  closePatchModal()
+                }}
                 style={patchModalCustomStyles}
               >
                 <img src={patch} alt={mission_name + ' patch'} />

@@ -8,6 +8,7 @@ import { getYoutubeEmbedLink } from '../../assets/utils/utils'
 import { getTimeLeft } from '../../assets/utils/utils'
 import BreadCrumbs from '../../components/BreadCrumbs'
 import Skeleton from 'react-loading-skeleton'
+import Img from 'react-cool-img'
 
 
 const LaunchDetails = () => {
@@ -25,6 +26,7 @@ const LaunchDetails = () => {
     var launchDate = moment.utc(launch_date_utc).format('DD MMM YYYY')
     var rocket_name = launchData?.rocket?.rocket_name
     var launch_site = launchData?.launch_site?.site_name_long
+    var patch = launchData?.links?.mission_patch_small
     title = mission_name
     description = details
     youtubeVideo = getYoutubeEmbedLink(launchData?.links?.video_link)
@@ -180,6 +182,18 @@ const LaunchDetails = () => {
                         </iframe>
                       </Modal>
                     </dl>
+                    {patch
+                      ?
+                      <div className="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
+                        <dt className="text-sm leading-5 font-medium text-gray-500">
+                          Mission patch
+                      </dt>
+                        <dd className="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+                          <img className='bg-gray-200 h-16 w-16 rounded-full' src={patch} alt={mission_name + ' patch'} />
+                        </dd>
+                      </div>
+                      : ''
+                    }
                     <div className="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
                       <dt className="text-sm leading-5 font-medium text-gray-500">
                         Rocket
