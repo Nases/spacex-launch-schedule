@@ -81,7 +81,7 @@ const LaunchDetails = () => {
   return (
     <Layout title={title + ' | SpaceX Launch Schedule'} description={description}>
       {
-        launchData ?
+        launchData && false ?
           <div className="flex flex-col px-2 mt-2 md:my-8 lg:max-w-2xl xl:max-w-3xl m-auto">
             <div className="overflow-x-auto">
               <div className="align-middle inline-block min-w-full shadow overflow-hidden rounded-lg border-b border-gray-200 bg-white">
@@ -233,7 +233,18 @@ const LaunchDetails = () => {
                 <div className="bg-white shadow overflow-hidden sm:rounded-lg">
                   <div className="py-5 px-5 border-b border-gray-200">
                     <Skeleton className='mb-10' height={40} />
-                    <Skeleton className='mb-2' height={20} count={5} />
+                    <br />
+                    <Skeleton className='mb-2' height={20} width={240} />
+                    <br />
+                    <Skeleton className='mb-2' height={20} width={180} />
+                    <br />
+                    <Skeleton className='mb-2' height={20} width={260} />
+                    <br />
+                    <Skeleton className='mb-2' height={20} width={200} />
+                    <br />
+                    <Skeleton className='mb-2' height={20} width={130} />
+                    <br />
+                    <Skeleton className='mb-2' height={20} width={220} />
                   </div>
                 </div>
               </div>
