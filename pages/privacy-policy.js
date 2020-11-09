@@ -1,20 +1,25 @@
 import Layout from '../components/Layout'
-import Footer from '../components/Footer'
-import Link from 'next/link'
+import BreadCrumbs from '../components/BreadCrumbs'
 
 
 const PrivacyPolicy = () => {
   return (
     <Layout title='Privacy Policy | SpaceX Launch Schedule'>
-      <div className="flex flex-col p-0 m-0 md:my-8 lg:mx-32 xl:mx-64">
+      <div className="flex flex-col px-2 mt-2 md:my-8 lg:max-w-2xl xl:max-w-3xl m-auto">
         <div className="overflow-x-auto">
           <div className="align-middle inline-block min-w-full shadow overflow-hidden rounded-lg border-b border-gray-200">
-            <div className='text-gray-900 bg-gray-100 py-4 px-6'>
-              <h1 className='hover:underline'>
-                <Link href="/">
-                  <a>&larr; Go back</a>
-                </Link>
-              </h1>
+            <div className='text-gray-900 bg-gray-100 pt-4 px-6'>
+              <BreadCrumbs>
+                <BreadCrumbs.BreadCrumb href='/'>
+                  <svg className="flex-shrink-0 h-5 w-5 transition duration-150 ease-in-out" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+                  </svg>
+                </BreadCrumbs.BreadCrumb>
+                <BreadCrumbs.Arrow />
+                <BreadCrumbs.BreadCrumb href='/privacy-policy'>
+                  Privacy Policy
+                </BreadCrumbs.BreadCrumb>
+              </BreadCrumbs>
               <br />
               <h1><strong>Privacy Policy</strong></h1>
               <p>At SpaceX Launch Schedule, accessible from spacex-launches.hasansefaozalp.com, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by SpaceX Launch Schedule and how we use it.</p>
