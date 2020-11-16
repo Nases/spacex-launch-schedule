@@ -1,8 +1,9 @@
 import Modal from 'react-modal'
 import { useState, useEffect } from 'react'
 import { getTimeLeft } from '../assets/utils/utils'
-import { Router, useRouter } from 'next/router'
+import { useRouter } from 'next/router'
 import Image from 'next/image'
+import Link from 'next/link'
 
 
 const Launch = ({
@@ -106,7 +107,7 @@ const Launch = ({
             <div className="hidden md:flex md:flex-shrink-0 md:h-10 md:w-10">
               <Image
                 className="bg-gray-200 h-10 w-10 rounded-full cursor-pointer"
-                src={patch || '/placeholder.png'}
+                src={patch || '/placeholder40x40.png'}
                 width={40}
                 height={40}
                 alt={mission_name + ' patch'}
@@ -124,7 +125,7 @@ const Launch = ({
                 style={patchModalCustomStyles}
               >
                 <Image
-                  src={patch}
+                  src={patch || '/placeholder256x256.png'}
                   width={256}
                   height={256}
                   alt={mission_name + ' patch'}
