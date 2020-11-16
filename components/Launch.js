@@ -1,9 +1,9 @@
 import Modal from 'react-modal'
 import { useState, useEffect } from 'react'
 import { getTimeLeft } from '../assets/utils/utils'
-import Img from 'react-cool-img'
 import { Router, useRouter } from 'next/router'
 import Image from 'next/image'
+// import Img from 'react-cool-img'
 
 
 const Launch = ({
