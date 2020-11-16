@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react'
 import { getTimeLeft } from '../assets/utils/utils'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
-import Link from 'next/link'
 
 
 const Launch = ({
@@ -14,7 +13,6 @@ const Launch = ({
   launch_success,
   upcoming,
   mission_name,
-  details,
   youtubeVideo,
   launch_date_utc
 }) => {
@@ -26,6 +24,7 @@ const Launch = ({
       const intervalId = setInterval(() => { setTimeLeft(getTimeLeft(launch_date_utc)) }, 1000)
       return () => clearInterval(intervalId)
     }
+    console.log('e')
   }, [])
 
   // Make sure to bind modal to appElement (http://reactcommunity.org/react-modal/accessibility/)

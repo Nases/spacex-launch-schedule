@@ -97,10 +97,10 @@ const Launches = ({ launchesData }) => {
             </thead>
             <tbody className="bg-white">
               {
-                currentLaunches.map(value => {
+                currentLaunches.map((value, index) => {
                   return (
                     <Launch
-                      key={value.flight_number}
+                      key={value.flight_number + index + value.mission_name}
                       flight_number={value.flight_number}
                       rocket_name={value.rocket.rocket_name}
                       launch_date={moment.utc(value.launch_date_utc).format('DD MMM YYYY')}
@@ -108,7 +108,6 @@ const Launches = ({ launchesData }) => {
                       launch_success={value.launch_success}
                       upcoming={value.upcoming}
                       mission_name={value.mission_name}
-                      details={value.details}
                       youtubeVideo={getYoutubeEmbedLink(value.links.video_link)}
                       launch_number={value.flight_number}
                       launch_site_name_long={value.launch_site.site_name_long}
