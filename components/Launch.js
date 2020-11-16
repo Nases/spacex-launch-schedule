@@ -106,14 +106,14 @@ const Launch = ({
           <div className="flex items-center">
             <div className="hidden md:flex md:flex-shrink-0 md:h-10 md:w-10">
               <Image
-                className="bg-gray-200 h-10 w-10 rounded-full cursor-pointer"
+                className={`bg-gray-200 h-10 w-10 rounded-full ${patch ? 'cursor-pointer' : 'cursor-default'}`}
                 src={patch || '/placeholder40x40.png'}
                 width={40}
                 height={40}
                 alt={mission_name + ' patch'}
                 onClick={e => {
                   e.stopPropagation()
-                  openPatchModal()
+                  patch && openPatchModal()
                 }}
               />
               <Modal
