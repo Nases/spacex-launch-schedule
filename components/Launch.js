@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react'
 import { getTimeLeft } from '../assets/utils/utils'
 import { Router, useRouter } from 'next/router'
 import Image from 'next/image'
-// import Img from 'react-cool-img'
 
 
 const Launch = ({
@@ -124,7 +123,12 @@ const Launch = ({
                 }}
                 style={patchModalCustomStyles}
               >
-                <img src={patch} alt={mission_name + ' patch'} />
+                <Image
+                  src={patch}
+                  width={256}
+                  height={256}
+                  alt={mission_name + ' patch'}
+                />
               </Modal>
             </div>
             <div className="ml-1 md:ml-4">

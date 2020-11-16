@@ -8,7 +8,7 @@ import { getYoutubeEmbedLink } from '../../assets/utils/utils'
 import { getTimeLeft } from '../../assets/utils/utils'
 import BreadCrumbs from '../../components/BreadCrumbs'
 import Skeleton from 'react-loading-skeleton'
-import Img from 'react-cool-img'
+import Image from 'next/image'
 
 
 const LaunchDetails = () => {
@@ -200,7 +200,7 @@ const LaunchDetails = () => {
                           Mission patch
                       </dt>
                         <dd className="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                          <img className='bg-gray-200 h-16 w-16 rounded-full' src={patch} alt={mission_name + ' patch'} />
+                          <Image className='bg-gray-200 h-16 w-16 rounded-full' src={patch} width={64} height={64} alt={mission_name + ' patch'} />
                         </dd>
                       </div>
                       : ''
