@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { getTimeLeft } from '../assets/utils/utils'
 import Img from 'react-cool-img'
 import { Router, useRouter } from 'next/router'
+import Image from 'next/image'
 
 
 const Launch = ({
@@ -104,9 +105,11 @@ const Launch = ({
         <td className="pl-2 py-2 sm:px-6 sm:py-4 whitespace-no-wrap border-b border-gray-200">
           <div className="flex items-center">
             <div className="hidden md:flex md:flex-shrink-0 md:h-10 md:w-10">
-              <Img
+              <Image
                 className="bg-gray-200 h-10 w-10 rounded-full cursor-pointer"
-                src={patch}
+                src={patch || '/placeholder.png'}
+                width={40}
+                height={40}
                 alt={mission_name + ' patch'}
                 onClick={e => {
                   e.stopPropagation()

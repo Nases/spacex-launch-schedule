@@ -2,16 +2,12 @@ import { useState } from 'react'
 import Launch from './Launch'
 const moment = require('moment')
 import { getYoutubeEmbedLink } from '../assets/utils/utils'
-import { getTimeLeft } from '../assets/utils/utils'
 
 
 const Launches = ({ launchesData }) => {
   const [isLaunchesReversed, setIsLaunchesReversed] = useState(false)
   const [currentPage, setCurrentPage] = useState(1)
   const [launchesPerPage, setLaunchesPerPage] = useState(20)
-
-
-  // check next upcoming if launched or not, if launched then add the second upcoming to the array
 
   function handlePageChange(event) {
     setCurrentPage(event.target.id)
@@ -37,7 +33,7 @@ const Launches = ({ launchesData }) => {
     }
   }
 
-  // Logic for displaying page numbers
+  // logic for displaying page numbers
   const pageNumbers = []
   for (let i = 1; i <= Math.ceil(launchesData.length / launchesPerPage); i++) {
     pageNumbers.push(i)
@@ -188,12 +184,11 @@ const Launches = ({ launchesData }) => {
             </div>
           </div>
           {/* pagination end */}
-
-
         </div>
       </div>
     </div >
   )
 }
+
 
 export default Launches

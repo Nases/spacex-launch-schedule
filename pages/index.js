@@ -1,6 +1,5 @@
 import Layout from '../components/Layout'
 import Launches from '../components/Launches'
-import Footer from '../components/Footer'
 const axios = require('axios')
 import { getTimeLeft } from '../assets/utils/utils'
 
@@ -25,12 +24,12 @@ export async function getStaticProps() {
 
     newArr.reverse()
     // if upcoming launch's date is past then remove upcoming launch
-    if (getTimeLeft(newArr[0].launch_date_utc, true) < 0 && newArr[0].upcoming) {
-      newArr.splice(0, 1)
-    }
-    if (getTimeLeft(newArr[1].launch_date_utc, true) < 0 && newArr[1].upcoming) {
-      newArr.splice(1, 1)
-    }
+    // if (getTimeLeft(newArr[0].launch_date_utc, true) < 0 && newArr[0].upcoming) {
+    //   newArr.splice(0, 1)
+    // }
+    // if (getTimeLeft(newArr[1].launch_date_utc, true) < 0 && newArr[1].upcoming) {
+    //   newArr.splice(1, 1)
+    // }
     return newArr
   })
 
