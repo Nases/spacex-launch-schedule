@@ -1,7 +1,6 @@
 import Layout from '../components/Layout'
 import Launches from '../components/Launches'
 const axios = require('axios')
-import { getTimeLeft } from '../assets/utils/utils'
 
 
 export async function getStaticProps() {
