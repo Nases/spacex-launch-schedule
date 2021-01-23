@@ -35,7 +35,7 @@ const LaunchDetails = () => {
     var patch = launchData?.links?.mission_patch_small
     title = mission_name
     description = details
-    youtubeVideo = getYoutubeEmbedLink(launchData?.links?.video_link)
+    youtubeVideo = getYoutubeEmbedLink(launchData?.links?.webcast)
   }
 
   useEffect(() => {
