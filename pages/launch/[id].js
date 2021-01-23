@@ -27,13 +27,13 @@ const LaunchDetails = () => {
       '5e9d0d95eda69974db09d1ed': 'Falcon Heavy',
       '5e9d0d96eda699382d09d1ee': 'Starship',
     }
-    var { mission_name, details, date_utc, success, upcoming, flight_number } = launchData
+    var { name, details, date_utc, success, upcoming, flight_number } = launchData
     var imgs = launchData?.links?.flickr.original
     var launchDate = moment.utc(date_utc).format('DD MMM YYYY')
     var rocket_name = rockets[launchData?.rocket]
     // var launch_site = launchData?.launch_site?.site_name_long
     var patch = launchData?.links?.mission_patch_small
-    title = mission_name
+    title = name
     description = details
     youtubeVideo = getYoutubeEmbedLink(launchData?.links?.webcast)
   }
@@ -112,7 +112,7 @@ const LaunchDetails = () => {
                     }
                     <div className='px-4 sm:px-6 mt-4'>
                       <h1 className="text-lg leading-6 font-medium text-gray-900">
-                        {mission_name}
+                        {name}
                       </h1>
                       <h2 className="mt-1 max-w-2xl text-sm leading-5 text-gray-500">
                         {details}
@@ -205,7 +205,7 @@ const LaunchDetails = () => {
                           Mission patch
                       </dt>
                         <dd className="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                          <Image className='bg-gray-200 h-16 w-16 rounded-full' src={patch} width={64} height={64} alt={mission_name + ' patch'} />
+                          <Image className='bg-gray-200 h-16 w-16 rounded-full' src={patch} width={64} height={64} alt={name + ' patch'} />
                         </dd>
                       </div>
                       : ''
