@@ -4,7 +4,7 @@ const axios = require('axios')
 
 
 export async function getStaticProps() {
-  const newArr = await axios.get('https://api.spacexdata.com/v3/launches').then(value => {
+  const newArr = await axios.get('https://api.spacexdata.com/v4/launches').then(value => {
     var data = value.data
 
     var upcomingCounter = 0

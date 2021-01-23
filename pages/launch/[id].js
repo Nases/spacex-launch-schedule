@@ -16,16 +16,22 @@ const LaunchDetails = () => {
   var description
   var youtubeVideo
   const router = useRouter()
-  const flight_number = router.query.flight_number
+  const id = router.query.id
   const [launchData, setLaunchData] = useState()
   const [timeLeft, setTimeLeft] = useState('')
 
   if (launchData) {
-    var { mission_name, details, launch_date_utc, launch_success, upcoming } = launchData
-    var imgs = launchData?.links?.flickr_images
-    var launchDate = moment.utc(launch_date_utc).format('DD MMM YYYY')
-    var rocket_name = launchData?.rocket?.rocket_name
-    var launch_site = launchData?.launch_site?.site_name_long
+    const rockets = {
+      '5e9d0d95eda69955f709d1eb': 'Falcon 1',
+      '5e9d0d95eda69973a809d1ec': 'Falcon 9',
+      '5e9d0d95eda69974db09d1ed': 'Falcon Heavy',
+      '5e9d0d96eda699382d09d1ee': 'Starship',
+    }
+    var { mission_name, details, date_utc, success, upcoming, flight_number } = launchData
+    var imgs = launchData?.links?.flickr.original
+    var launchDate = moment.utc(date_utc).format('DD MMM YYYY')
+    var rocket_name = rockets[launchData?.rocket]
+    // var launch_site = launchData?.launch_site?.site_name_long
     var patch = launchData?.links?.mission_patch_small
     title = mission_name
     description = details
@@ -33,17 +39,17 @@ const LaunchDetails = () => {
   }
 
   useEffect(() => {
-    if (flight_number) {
-      const newArr = axios.get(`https://api.spacexdata.com/v3/launches/${flight_number}`).then(value => {
+    if (id) {
+      const newArr = axios.get(`https://api.spacexdata.com/v4/launches/${id}`).then(value => {
         var data = value.data
         setLaunchData(data)
       })
     }
     if (upcoming) {
-      const intervalId = setInterval(() => { setTimeLeft(getTimeLeft(launch_date_utc)) }, 1000)
+      const intervalId = setInterval(() => { setTimeLeft(getTimeLeft(date_utc)) }, 1000)
       return () => clearInterval(intervalId)
     }
-  }, [flight_number, upcoming])
+  }, [id, upcoming])
 
 
   const youtubeModalCustomStyles = {
@@ -77,7 +83,6 @@ const LaunchDetails = () => {
   }
 
 
-
   return (
     <Layout title={title + ' | SpaceX Launch Schedule'} description={description}>
       {
@@ -95,7 +100,7 @@ const LaunchDetails = () => {
                           </svg>
                         </BreadCrumbs.BreadCrumb>
                         <BreadCrumbs.Arrow />
-                        <BreadCrumbs.BreadCrumb href={`/launch/${flight_number}`}>
+                        <BreadCrumbs.BreadCrumb href={`/launch/${id}`}>
                           Launch # {flight_number}
                         </BreadCrumbs.BreadCrumb>
                       </BreadCrumbs>
@@ -122,7 +127,7 @@ const LaunchDetails = () => {
                         </dt>
                         <dd className="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
                           {
-                            (launch_success)
+                            (success)
                               ?
                               <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                                 Success
@@ -132,10 +137,10 @@ const LaunchDetails = () => {
                                 ?
                                 <div className='flex'>
                                   <p className='mr-2 text-sm leading-5 text-gray-600'>
-                                    {(getTimeLeft(launch_date_utc, true) > 0) ? timeLeft : ''}
+                                    {(getTimeLeft(date_utc, true) > 0) ? timeLeft : ''}
                                   </p>
                                   <span className="px-2 text-xs leading-5 font-semibold rounded-full bg-teal-100 text-teal-800">
-                                    {(getTimeLeft(launch_date_utc, true) > 0) ? 'Upcoming' : 'Launched'}
+                                    {(getTimeLeft(date_utc, true) > 0) ? 'Upcoming' : 'Launched'}
                                   </span>
                                 </div>
                                 :
@@ -213,14 +218,14 @@ const LaunchDetails = () => {
                         {rocket_name}
                       </dd>
                     </div>
-                    <div className="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
+                    {/* <div className="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
                       <dt className="text-sm leading-5 font-medium text-gray-500">
                         Launch Site
                     </dt>
                       <dd className="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
                         {launch_site}
                       </dd>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>

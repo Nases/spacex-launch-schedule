@@ -3,6 +3,6 @@ module.exports = {
     GOOGLE_ANALYTICS_ID: 'UA-160643323-1',
   },
   images: {
-    domains: ['i.imgur.com', 'images2.imgbox.com'],
+    domains: ['i.imgur.com', 'images2.imgbox.com', 'imgur.com'],
   },
 }

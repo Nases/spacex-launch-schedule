@@ -71,6 +71,13 @@ const Launches = ({ launchesData }) => {
     }
   }
 
+  const rockets = {
+    '5e9d0d95eda69955f709d1eb': 'Falcon 1',
+    '5e9d0d95eda69973a809d1ec': 'Falcon 9',
+    '5e9d0d95eda69974db09d1ed': 'Falcon Heavy',
+    '5e9d0d96eda699382d09d1ee': 'Starship',
+  }
+
   return (
     <div className="flex flex-col px-2 mt-2 md:my-8 lg:max-w-2xl xl:max-w-3xl m-auto">
       <div className="overflow-x-auto">
@@ -100,18 +107,18 @@ const Launches = ({ launchesData }) => {
                 currentLaunches.map((value, index) => {
                   return (
                     <Launch
-                      key={value.flight_number + index + value.mission_name}
-                      flight_number={value.flight_number}
-                      rocket_name={value.rocket.rocket_name}
-                      launch_date={moment.utc(value.launch_date_utc).format('DD MMM YYYY')}
-                      patch={value.links.mission_patch_small}
-                      launch_success={value.launch_success}
+                      key={value.flight_number + index + value.name}
+                      id={value.id}
+                      rocket_name={rockets[value.rocket]}
+                      launch_date={moment.utc(value.date_utc).format('DD MMM YYYY')}
+                      patch={value.links.patch.small}
+                      launch_success={value.success}
                       upcoming={value.upcoming}
-                      mission_name={value.mission_name}
-                      youtubeVideo={getYoutubeEmbedLink(value.links.video_link)}
+                      mission_name={value.name}
+                      youtubeVideo={getYoutubeEmbedLink(value.links.webcast)}
                       launch_number={value.flight_number}
-                      launch_site_name_long={value.launch_site.site_name_long}
-                      launch_date_utc={value.launch_date_utc}
+                      // launch_site_name_long={value.launch_site.site_name_long}
+                      launch_date_utc={value.date_utc}
                     />
                   )
                 })
