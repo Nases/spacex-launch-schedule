@@ -1,6 +1,6 @@
 # SpaceX Launches 🚀
 
-## ✅ Online &#8594;  https://spacexschedule.com/
+## ✅ Online &#8594;  https://spacex-launches.vercel.app/
 
 ### Build Stack
 * [NEXT.js](https://nextjs.org/docs/getting-started)
